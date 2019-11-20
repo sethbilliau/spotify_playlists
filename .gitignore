@@ -16,6 +16,7 @@ ipython_config.py
 Songs/
 .DS_Store
 
+william/pickles/songs_30k_dropped.pkl
 # Remove previous ipynb_checkpoints
 #   git rm -r .ipynb_checkpoints/
 

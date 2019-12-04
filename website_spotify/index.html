@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Top nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+        <a class="navbar-brand" href="#">CS 109 Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" id="myMenu">
+                <li data-menuanchor="firstPage" class="nav-item active">
+                    <a class="nav-link" href="#firstPage">Abstract</a>
+                </li>
+                <li data-menuanchor="secondPage" class="nav-item">
+                    <a class="nav-link" href="#secondPage">Introduction</a>
+                </li>
+                <li data-menuanchor="thirdPage" class="nav-item">
+                    <a class="nav-link" href="#thirdPage">Data and EDA</a>
+                </li>
+                <li data-menuanchor="fourthPage" class="nav-item">
+                    <a class="nav-link" href="#fourthPage">Methods and Models</a>
+                </li>
+                <li data-menuanchor="fifthPage" class="nav-item">
+                    <a class="nav-link" href="#fifthPage">Results</a>
+                </li>
+                <li data-menuanchor="sixthPage" class="nav-item">
+                    <a class="nav-link" href="#sixthPage">Discussion and Conclusion</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Page piling, to create a new page, add a new div with class "section" -->
+    <div id="pagepiling">
+        <div class="section">
+            <h1>Abstract</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Introduction</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Data and EDA</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Methods and Models</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Results</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Discussion and Conclusion</h1>
+            <p></p>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="js/jquery.pagepiling.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

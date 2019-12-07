@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/spotify_icon.png">
+</head>
+<body>
+
+<!-- Top nav bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+        <a class="navbar-brand" href="#">CS 109 Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" id="myMenu">
+                <li data-menuanchor="firstPage" class="nav-item active">
+                    <a class="nav-link" href="#firstPage">Home</a>
+                </li>
+                <li data-menuanchor="secondPage" class="nav-item">
+                    <a class="nav-link" href="#secondPage">Abstract</a>
+                </li>
+                <li data-menuanchor="thirdPage" class="nav-item">
+                    <a class="nav-link" href="#thirdPage">Data and EDA</a>
+                </li>
+                <li data-menuanchor="fourthPage" class="nav-item">
+                    <a class="nav-link" href="#fourthPage">Methods and Models</a>
+                </li>
+                <li data-menuanchor="fifthPage" class="nav-item">
+                    <a class="nav-link" href="#fifthPage">Results</a>
+                </li>
+                <li data-menuanchor="sixthPage" class="nav-item">
+                    <a class="nav-link" href="#sixthPage">Discussion and Conclusion</a>
+                </li>
+                <li data-menuanchor="seventhPage" class="nav-item">
+                    <a class="nav-link" href="#seventhPage">Bibliography</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Page piling, to create a new page, add a new div with class "section" -->
+    <div id="pagepiling">
+        <div class="section">
+            <img src="images/spotify_logo.png" alt="spotify logo" class="center" width = "800">
+            
+            <br/>
+            <h1 class="center" style="text-align: center;">Generating Playlists with Spotify</h1>
+            <li>Team members: Seth Billiau, William Drew, Sarah Lucioni</li>
+            <li>Assigned TF: Nathan Hollenberg</li>
+            <li>Last edited: 12/11/2019</li>
+            <li>Group ID: 56</li>
+        </div>
+        <div class="section pp-scrollable">
+            <h3>Motivation and Project Questions</h3>
+            <p>When it comes to music, streaming is the way of the future. Convenient, cheap, and widely accessible, streaming is easier than ever with more people turning to popular services for their musical needs. In April of 2019, industry leader Spotify announced that they had reached a staggering 217 million monthly active users with over 100 million paid subscribers (Porter, “Spotify Is First to 100 Million Paid Subscribers.”).</p>
+
+            <p>In addition to providing music for its users, Spotify also provides a robust music recommendation system. Leveraging data science and machine learning techniques, Spotify aggregates a number of different models to generate new playlists based on a user’s musical preferences.</p>
+
+            <p>Developing a user’s musical taste is no small feat, but Spotify is able to overcome this hurdle by collecting user feedback on generated playlists with an up/down vote system and by aggregating information from a user’s listening history. But what if they didn’t have all of that information?  How should Spotify generate a new playlist for a brand new user given minimal user information? Imagine a new user stumbles upon Spotify for the first time and plays a song. From this single song, is it possible to generate a likeable playlist?</p>
+
+            <p>Our project attempts to answer this question by developing such a "cold start" model, generating a new playlist for a user given just a single song. </p>
+
+            <h3>Organization of the Report</h3> 
+            <p>This report will begin with an exploration of the dataset and its features. We will continue by explaining our methods, models, and forms of evaluation. The final sections of our project will present our results and conclusions with a brief discussion of possible extensions to our project.</p>
+
+
+            <h5>Works Cited</h5>
+              <ol>
+                 <li>
+                    <p>Porter, “Spotify Is First to 100 Million Paid Subscribers.”</p>
+                 </li>
+                 <li>
+                    <p>“Discover Weekly: How Spotify Is Changing the Way We Consume Music – Technology and Operations Management.”</p>
+                 </li>
+              </ol>
+        </div>
+ 
+        <div class="section pp-scrollable">
+            <h3>Data Sources and Features</h3>
+            <p>This project uses the Spotify Songs dataset, a collection of one million playlists organized into 1000 .csv files. Each row of these .csv files is a song object with the variable <i>pid</i> denoting the playlist ID and linking the corresponding song objects to the playlist. The features of our data are as follows: </p>
+
+            <li><i>pid:</i> the song’s corresponding playlist ID </li>
+            <li><i>pos:</i> the song’s position on the playlist</li>
+            <li><i>artist_name:</i> the song’s artist name</li>
+            <li><i>track_uri:</i> the Uniform Resource Indicator (URI) link for the song (which we can query the Spotify API with)</li>
+            <li><i>artist_uri:</i>  the Uniform Resource Indicator link for the artist</li>
+            <li><i>track_name:</i> the name of the song</li>
+            <li><i>album_uri:</i> the Uniform Resource Indicator link for the album the song is on </li>
+            <li><i>duration_ms:</i> the length of the song in ms</li>
+            <li><i>album_name:</i> the name of the album the song is on</li>
+
+            <br/>
+
+            <p>We began by performing some preliminary analysis to explore how we can engineer these given features to our advantage. Upon an initial inspection, we saw that we needed to clean three variables: <i>track_uri, artist_uri</i>, and <i>album_uri</i>. Originally, all three of these URI's showed the header <i>“spotify:track/artist/album:URI”</i>. However, the useful part of each of these features was the URI code that followed this header since it can be used to query the Spotify API. Therefore, we wrote a function to strip off this header and reformatted these features to include only the useful parts of the URI.</p>
+
+            <p>Using these URI’s we queried the Spotify API using the Spotipy library to access the API with Python, extracting the audio features for each song in our dataset. The audio features we plan to examine most closely are:</p>
+
+            <li><i>acousticness:</i> [0, 1] value determining whether track is acoustic</li>
+            <li><i>danceability:</i> [0, 1] value determining whether track is danceable</li>
+            <li><i>duration:</i> track duration in ms</li>
+            <li><i>energy:</i> [0, 1] value determining relative energy of track, typically classical to heavy metal, soft to intense/loud/full of activity </li>
+            <li><i>instrumentalness:</i> [0, 1] value determining whether track has vocal content, closer to 1 is closer to instrumental </li>
+            <li><i>liveness:</i> [0, 1] value determining whether track is recorded in front of a live audience</li>
+            <li><i>loudness:</i> how loud the song is in decibels (dB). Typically -60 to 0 db</li>
+            <li><i>mode:</i> [0, 1] value determining whether track is more minor or major</li>
+            <li><i>speechiness:</i> [0, 1] value determining spoken words in track (below 0.33 likely represents music, non-spoken tracks) </li>
+            <li><i>tempo:</i> song's tempo in beats per minute (BPM) </li>
+            <br/>
+            
+            <p>When parsing the playlists, we ran into some problems where occasionally the Spotify API did not return a complete audio feature list when provided with specific song URIs. This prevented the entire playlist from being parsed correctly, so we handled this problem by skipping these playlists whenever we ran into this issue. We do not believe that this has any significant impact on the collection of songs we compiled as we could not identify any systematic pattern nor commonality between the problematic playlists. </p>
+
+            <p> </p>
+            <br/>
+            <h3>EDA</h3>
+            <p>After successfully extracting audio features for each song in our dataset, we began by visualizing the distribution of these audio features. 
+
+            We then wrote a function to extract a list of the tracks in a playlist and another function to return summary statistics about the playlist’s audio features. The latter function uses the Spotify API to extract the audio features of each song in the playlist. Based on the audio features, we further explored the data by creating visualizations which are displayed in the following section. We also created visualizations based on the number of songs in a playlist and the duration (in minutes) of a playlist.</p>
+            <p> </p>
+            <br/>
+
+        </div>
+
+        <div class="section">
+            <h1>Methods and Models</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Results</h1>
+            <p></p>
+        </div>
+
+        <div class="section">
+            <h1>Discussion and Conclusion</h1>
+            <p></p>
+        </div>
+        <div class="section">
+            <h1>Full Bibliography</h1>
+		      <ol>
+		         <li>
+		            <p>Porter, “Spotify Is First to 100 Million Paid Subscribers.”</p>
+		         </li>
+		         <li>
+		            <p>“Discover Weekly: How Spotify Is Changing the Way We Consume Music – Technology and Operations Management.”</p>
+		         </li>
+		      </ol>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="js/jquery.pagepiling.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

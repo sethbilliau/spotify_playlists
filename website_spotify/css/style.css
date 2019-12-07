@@ -11,10 +11,18 @@ nav {
 }
 
 .navbar-custom {
-    background-color: #1db954 !important;
+    background-color: #1ED760 !important;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 /* do not center the text within each page */
 .pp-tableCell {
     vertical-align: baseline;
 }
+

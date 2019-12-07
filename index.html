@@ -100,7 +100,7 @@
             <li><i>mode:</i> [0, 1] value determining whether track is more minor or major</li>
             <li><i>speechiness:</i> [0, 1] value determining spoken words in track (below 0.33 likely represents music, non-spoken tracks) </li>
             <li><i>tempo:</i> song's tempo in beats per minute (BPM) </li>
-            <br>
+            <br/>
             
             <p>When parsing the playlists, we ran into some problems where occasionally the Spotify API did not return a complete audio feature list when provided with specific song URIs. This prevented the entire playlist from being parsed correctly, so we handled this problem by skipping these playlists whenever we ran into this issue. We do not believe that this has any significant impact on the collection of songs we compiled as we could not identify any systematic pattern nor commonality between the problematic playlists. </p>
 

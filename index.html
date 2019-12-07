@@ -98,15 +98,17 @@
             <li><i>liveness:</i> [0, 1] value determining whether track is recorded in front of a live audience</li>
             <li><i>loudness:</i> how loud the song is in decibels (dB). Typically -60 to 0 db</li>
             <li><i>mode:</i> [0, 1] value determining whether track is more minor or major</li>
-            <li><i>speechiness:</i> [0, 1] value determining spoken words in track (below 0.33 likely represents music, non-spoken tracks)
+            <li><i>speechiness:</i> [0, 1] value determining spoken words in track (below 0.33 likely represents music, non-spoken tracks) </li>
             <li><i>tempo:</i> song's tempo in beats per minute (BPM) </li>
-        
+            <br>
+            <p>When parsing the playlists, we ran into some problems where occasionally the Spotify API did not return a complete audio feature list when provided with specific song URIs. This prevented the entire playlist from being parsed correctly, so we handled this problem by skipping these playlists whenever we ran into this issue. We do not believe that this has any significant impact on the collection of songs we compiled as we could not identify any systematic pattern nor commonality between the problematic playlists. </p>
+
             <p> </p>
             <br/>
             <h3>EDA</h3>
             <p>After successfully extracting audio features for each song in our dataset, we began by visualizing the distribution of these audio features. 
 
-            We then wrote a function to extract a list of the tracks in a playlist and another function to return summary statistics about the playlist’s audio features. The latter function uses the Spotify API to extract the audio features of each song in the playlist. Based on the audio features, we further explored the data by creating visualizations which are displayed in the following section. We also created visualizations based on the number of songs in a playlist and the duration (in minutes) of a playlist. </p>
+            We then wrote a function to extract a list of the tracks in a playlist and another function to return summary statistics about the playlist’s audio features. The latter function uses the Spotify API to extract the audio features of each song in the playlist. Based on the audio features, we further explored the data by creating visualizations which are displayed in the following section. We also created visualizations based on the number of songs in a playlist and the duration (in minutes) of a playlist.</p>
             <p> </p>
             <br/>
 

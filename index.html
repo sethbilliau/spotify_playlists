@@ -115,6 +115,8 @@
             
             <p>When parsing the playlists, we ran into some problems where occasionally the Spotify API did not return a complete audio feature list when provided with specific song URIs. This prevented the entire playlist from being parsed correctly, so we handled this problem by skipping these playlists whenever we ran into this issue. We do not believe that this has any significant impact on the collection of songs we compiled as we could not identify any systematic pattern nor commonality between the problematic playlists. </p>
 
+            <p>From our dataset of one million playlists, we parsed 30,000 of them and collected audio features for nearly 200,000 songs. We stopped at parsing through only 30,000 playlists due to technical limitations and time constraints. By our estimation, it would have taken us multiple days and memory usage beyond the capabilities of our laptops to parse through all one million playlists. Of course, by limiting the number of playlists we parsed, we are limiting the size of our music library that we can recommend. We decided that the first 30,000 playlists mapping to 200,000 songs provided a good enough distribution of music genres, types, and styles to provide interesting and novel recommendations to our users. </p>
+
             <p> </p>
             <br/>
             <h3>EDA</h3>
@@ -133,7 +135,13 @@
 
         <div class="section">
             <h1>Results</h1>
-            <p></p>
+            <h1>Evaluating our playlists</h1>
+            <p>Once we had created our playlists using our K-NN and K-Means models, we created three testing metrics by which to evaluate the quality of our playlists. These methods are described in this section of our report. </p>
+            <br/>
+            <h3>Method 1: Cluster Evaluation</h3>
+
+            <h3>Method 2: User-Created Playlist Audio Features</h3>
+
         </div>
 
         <div class="section">

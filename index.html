@@ -29,16 +29,16 @@
                     <a class="nav-link" href="#thirdPage">Literature Review</a>
                 </li>
                 <li data-menuanchor="fourthPage" class="nav-item">
-                    <a class="nav-link" href="#thirdPage">Data and EDA</a>
+                    <a class="nav-link" href="#fourthPage">Data and EDA</a>
                 </li>
                 <li data-menuanchor="fifthPage" class="nav-item">
-                    <a class="nav-link" href="#fourthPage">Methods and Models</a>
+                    <a class="nav-link" href="#fifthPage">Methods and Models</a>
                 </li>
                 <li data-menuanchor="sixthPage" class="nav-item">
-                    <a class="nav-link" href="#fifthPage">Results</a>
+                    <a class="nav-link" href="#sixthPage">Results</a>
                 </li>
                 <li data-menuanchor="seventhPage" class="nav-item">
-                    <a class="nav-link" href="#sixthPage">Conclusions</a>
+                    <a class="nav-link" href="#seventhPage">Conclusions</a>
                 </li>
                 <li data-menuanchor="eighthPage" class="nav-item">
                     <a class="nav-link" href="#eighthPage">Bibliography</a>
@@ -60,6 +60,7 @@
             <li>Group ID: 56</li>
         </div>
         <div class="section pp-scrollable">
+            <h1>Abstract</h1>
             <h3>Motivation and Project Questions</h3>
             <p>When it comes to music, streaming is the way of the future. Convenient, cheap, and widely accessible, streaming is easier than ever with more people turning to popular services for their musical needs. In April of 2019, industry leader Spotify announced that they had reached a staggering 217 million monthly active users with over 100 million paid subscribers (Porter, “Spotify Is First to 100 Million Paid Subscribers.”).</p>
 
@@ -165,9 +166,77 @@
 
         </div>
 
-        <div class="section">
+        <div class="section pp-scrollable">
             <h1>Methods and Models</h1>
-            <p></p>
+            <h3>Model Type and Description</h3>
+            <p>To address our question of how to generate a new playlist for a new user given minimal user information, we first considered the data we would use, the transformations we would need to apply, the output we wanted, and the input needed to predict the output before deciding on a model type. Rewording our problem statement, our model must predict a playlist given minimal user information.</p>
+
+            <h3>Data</h3>
+            <p>The data is unconventional because our data of playlists of songs are technically categorical data. However, each unique song is it’s own “category” which makes traditional categorical transformations such as one-hot encoding uninterpretable. Using the Spotify API, we can extract audio features for each song (see Data and EDA). The audio features transform each song to a set of numerical features better suited for traditional prediction techniques. We selected the audio features acousticness, danceability, energy, instrumentalness, liveness, speechiness, and tempo to analyze. We chose these seven features because they are rarely omitted from the Spotify audio features data (an omitted audio feature appears as a 0 in the Spotify data) and they are all normalized values (except tempo). Tempo not being normalized led to several model variations which we will discuss below.</p>
+            <p>As discussed in the Data and EDA section, our dataset contains one million playlists. To reduce the computational power needed and the Spotify API calls made, we decided to train our model on the first 30,000 playlists and test on the next 1000 playlists. This train - test split is valid because the data is already randomly sorted. Therefore, both the train and test sets should reflect the overall data.</p>
+
+            <h3>Response and Predictor Variables</h3>
+            <p>The output is an n-length playlist of n-songs. This means that our model should predict n-songs. To do so, our transformed song data (to audio features) should also keep a reference back to it’s song. This reference will be used to display the predicted playlist. </p>
+            <p>The input needs to be a datum that our model can predict songs based off of, but it must be minimal to match our problem statement. Due to these constraints, we decided that our input would be a “seed song” as well as a playlist length. The seed song will be in the form of a Spotify URI so that we can extract the audio features from it. We also input a playlist length to simplify the predictive tasks of the model. However, a separate model could be written to predict the length of the playlist, but we did not find this necessary to implement to address our problem statement. <p>
+            <p>Therefore, our model must predict an n-length playlist of n-songs given n and a seed song.<p>
+
+            <h3>Model</h3>
+            <p>With one seed song, a natural approach suggests creating a playlist from the n closest songs to the seed. This motivates our first set of models: <b>k-Nearest Neighbors</b> based. Our second set of models is a logical comparison to the first: <b>k-Means Clustering</b> based. Let us first define each type of model, then discuss the differences, and finally, present our constructed models.<p>
+
+            <h3>k-Nearest Neighbors</h3>
+            <p>k-NN models are supervised machine learning algorithms used for classification or regression. Typically, the k nearest neighbors are accessed to predict the classification (most frequently occurring class in the k) or regression (mean of the k nearest neighbors). The k-NN algorithm is an instance of lazy learning which means that the computation is deferred until it must output a prediction (“Machine Learning Basics with the K-Nearest Neighbors Algorithm”). One variation of a k-NN model is the choice of distance metric. A proper distance metric must satisfy three properties:</p>
+
+            <ol>
+              <li>d(x, x) = 0, The distance between the same point equals 0.</li>
+              <li>d(x, x’) = d(x’, x), The distance function must be symmetric.</li>
+              <li>d(x, x’’)  d(x, x’) + d(x’, x’’), The triangle inequality must hold.</li>
+            </ol>
+
+            <p>Euclidean distance is commonly the selected distance metric for k-NN. However, cosine similarity may be effective in some cases. Cosine similarity does not respect the above properties, but may be used as a distance metric if appropriately treated within the model. The choice of distance metric presents the first variation in our set of k-NN models. We create one set of models using euclidean distance and a second set using cosine similarity.</p>
+            <p>Due to the distance metric, k-NN typically performs best when the data is all on the same scale (Dhiraj, “Difference between K-Nearest Neighbor(K-NN) and K-Means Clustering”). This limitation raises a concern about training our k-NN models on our data including tempo. The other six features are on a [0, 1] scale. However, tempo varies greatly and is hard to normalize because there is not a common base or top value. This presents a second variation in our set of k-NN models: include vs. omit tempo from the training data. </p>
+            <p>In our set of k-NN based models, instead of computing an averaged prediction from the k nearest neighbors, our prediction <i>will</i> be the k nearest neighbors. Furthermore, <i>k = n</i> (where n is one of the input parameters).</p>
+            <p>In the future, possible improvements include creating a weighted k-NN model. The songs could be weighted by popularity/occurrence in the training set, how close they are to the original song, or by some other feature we wish to include. </p>
+
+            <h3>k-Means Clustering</h3>
+            <p>k-Means Clustering is unsupervised machine learning algorithm which aims to split n observations (songs) into k clusters based on the nearest mean. k-Means is an NP-hard problem which means that it is computationally difficult to find the best answer (“K-Means Clustering”). Problems in NP are believed to not be solvable in polynomial time, however, this has not been proven (“Rocchio Algorithm”). However, efficient algorithms which converge to a local optimum exist.</p>
+
+            <p>k-Means can work well even when data is not on the same scale. To be consistent with our k-NN based models, we will construct a set of k-Means models which include vs. omit tempo from the training data. </p>
+            <p>Since we want our model to predict a playlist, we will have to slightly modify our k-Means model. To do so, we will construct a k-Means model, then we will predict the cluster the seed song belongs to. This cluster will become the selected cluster. A random sample of <i>n</i> songs will be drawn from the cluster and will create the predicted playlist. We randomly select the songs from the predicted cluster so as to better test the clustering functionality of the k-Means model.  </p>
+            <p>In the future, we could implement a smarter selection criteria for selecting songs within a cluster. A smarter choice would be to implement a k-NN model within a cluster to select the <i>n</i> songs. This variation is known as the Rocchio algorithm (“Rocchio Algorithm”). We did not want to test this variation because it blurs the line between k-NN and k-Means which we wish to keep clear for the sake of our model comparisons.</p>
+            <h3>k-Nearest Neighbors vs. k-Means Clustering</h3>
+            <p>There are a few clear differences between the k-NN and k-Means algorithms. First, k-NN solves a classification or regression problem while k-Means solves a clustering problem. Second, as explained above, k-NN is a lazy learner while k-Means is an eager learner. A lazy learner saves computation until absolutely needed as we observe in k-NN. An eager learner has a training step which creates and fits a model. Finally, as discussed above, k-NN functions much better if the data is all on the same scale while k-Means does not have this same constraint (Dhiraj).</p>
+            <p>Comparing these two sets of models allows us to compare a human tailored selection model (k-NN based) to a computer selection model (k-Means Clustering based). We will use this comparison as a testing metric discussed in the Results section. </p>
+
+            <h3>Final Models</h3>
+            <p>Our k-NN models will have two variantes: distance metric and tempo. This leads to four k-NN models total. The four models are:</p>
+            <ol>
+                <li>k-NN using <b>Euclidean distance</b> and <b>raw</b> tempo</li>
+            <li>k-NN using <b>Euclidean distance</b> and <b>no</b> tempo</li>
+            <li>k-NN using <b>cosine similarity</b> and <b>raw</b> tempo</li>
+            <li>k-NN using <b>cosine similarity</b> and <b>no</b> tempo</li>
+            </ol>
+
+            <p>We decided to omit comparison to normalized tempo after testing normalized tempo and seeing that the playlists constructed with tempo normalized typically consist of songs missing the audio features we aim to test. Missing these audio features breaks our testing metric making it hard to compare to the other models. For this reason, we decided to omit normalization of tempo.</p>
+
+
+            <h5>Works Cited</h5>
+              <ol>
+                 <li>
+                    <p>K, Dhiraj. “Difference between K-Nearest Neighbor(K-NN) and K-Means Clustering.” Medium, Medium, 29 Aug. 2019, <br>medium.com/@dhiraj8899/difference-between-k-nearest-neighbor-k-nn-and-k-means-clustering-d9a44859182f.</p>
+                 </li>
+                 <li>
+                    <p>“K-Means Clustering.” Wikipedia, Wikimedia Foundation, 3 Dec. 2019, <br> en.wikipedia.org/wiki/K-means_clustering.</p>
+                 </li>
+                 <li>
+                    <p>“Machine Learning Basics with the K-Nearest Neighbors Algorithm.” Accessed December 9, 2019. <br>https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761.</p>
+                 </li>
+                 <li>
+                     <p>“NP-Hardness.” Wikipedia, Wikimedia Foundation, 20 Nov. 2019, <br>https://en.wikipedia.org/wiki/NP-hardness.</p>
+                 </li>
+                 <li>
+                     <p>“Rocchio Algorithm.” Wikipedia, Wikimedia Foundation, 3 Nov. 2019, <br>https://en.wikipedia.org/wiki/Rocchio_algorithm.</p>
+                 </li>
+              </ol>
         </div>
 
         <div class="section pp-scrollable">
@@ -188,6 +257,9 @@
             <h1>Full Bibliography</h1>
 		      <ol>
                 <li>
+                    <p>K, Dhiraj. “Difference between K-Nearest Neighbor(K-NN) and K-Means Clustering.” Medium, Medium, 29 Aug. 2019, <br>medium.com/@dhiraj8899/difference-between-k-nearest-neighbor-k-nn-and-k-means-clustering-d9a44859182f.</p>
+                 </li>
+                <li>
                      <p>Dieleman, Sander. “Recommending Music on Spotify with Deep Learning.” Accessed December 9, 2019. <br>https://benanne.github.io/2014/08/05/spotify-cnns.html.</p>
                  </li>
                 <li>
@@ -202,6 +274,19 @@
 		         <li>
 		            <p>“Discover Weekly: How Spotify Is Changing the Way We Consume Music – Technology and Operations Management.”</p>
 		         </li>
+
+                 <li>
+                    <p>“K-Means Clustering.” Wikipedia, Wikimedia Foundation, 3 Dec. 2019, <br> en.wikipedia.org/wiki/K-means_clustering.</p>
+                 </li>
+                 <li>
+                    <p>“Machine Learning Basics with the K-Nearest Neighbors Algorithm.” Accessed December 9, 2019. <br>https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761.</p>
+                 </li>
+                 <li>
+                     <p>“NP-Hardness.” Wikipedia, Wikimedia Foundation, 20 Nov. 2019, <br>https://en.wikipedia.org/wiki/NP-hardness.</p>
+                 </li>
+                 <li>
+                     <p>“Rocchio Algorithm.” Wikipedia, Wikimedia Foundation, 3 Nov. 2019, <br>https://en.wikipedia.org/wiki/Rocchio_algorithm.</p>
+                 </li>
 		      </ol>
         </div>
     </div>

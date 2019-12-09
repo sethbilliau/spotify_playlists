@@ -83,7 +83,7 @@
                  </li>
               </ol>
         </div>
-         <div class="section">
+         <div class="section pp-scrollable">
             <h1>Literature Review</h1>
             <p>Before diving into our project, we reviewed various sources of relevant literature, researching different tools that could help us accomplish our project goal. First, we learned as much as we could about Spotify’s internal recommendation system.<p>
 
@@ -99,7 +99,7 @@
             <h5>Audio modeling</h5>
             <p>Using a Convolutional Neural Network, Spotify analyzes the input raw audio of every song on the service, producing comparable characteristics like time signature, key, tempo, loudness, etc., to compare songs. Therefore, if Spotify knows a target user has listening to song 1 with certain audio features, it will suggest songs with similar audio features in a new playlist. These audio features can be accessed via the Spotify developer tools (Dieleman. “Recommending Music on Spotify with Deep Learning.”).</p>
 
-            <p>Based on this research, we decided to explore an approach similar to Spotify’s audio modeling techniques in our project. With only a single input song, we do not have enough information on our base user to use collaborative filtering in an effective way. We also don’t have the bandwidth or capabilities to perform NLP with the tools we have learned in CS109. However, Spotify’s song audio features provide easily-comparable metrics by which to identify similar songs given one input track. Given this research, the goal of our data cleaning was to obtain audio features to be used for modeling in our project. This process is described in depth in the next section.</p>
+            <p>Based on this research, we decided to explore an approach similar to Spotify’s audio modeling techniques in our project. With only a single input song, we do not have enough information on our base user to use collaborative filtering in an effective way. We also don’t have the bandwidth or capabilities to perform NLP with the tools we have learned in CS109. However, Spotify’s song audio features provide easily-comparable metrics by which to identify similar songs given one input track.</p>
 
 
             <h5>Works Cited</h5>
@@ -117,6 +117,8 @@
         </div>
  
         <div class="section pp-scrollable">
+            <h1>Data and EDA</h1>
+            <p>Given our literature research, the goal of our data cleaning was to obtain Spotify audio features to be used for modeling in our project. This section describes that process.</p>
             <h3>Data Sources and Features</h3>
             <p>This project uses the Spotify Songs dataset, a collection of one million playlists organized into 1000 .csv files. Each row of these .csv files is a song object with the variable <i>pid</i> denoting the playlist ID and linking the corresponding song objects to the playlist. The features of our data are as follows: </p>
 

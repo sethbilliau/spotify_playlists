@@ -28,9 +28,6 @@
                 <li data-menuanchor="thirdPage" class="nav-item">
                     <a class="nav-link" href="#thirdPage">Literature Review</a>
                 </li>
-                <li data-menuanchor="thirdPage" class="nav-item">
-                    <a class="nav-link" href="#thirdPage">Data and EDA</a>
-                </li>
                 <li data-menuanchor="fourthPage" class="nav-item">
                     <a class="nav-link" href="#thirdPage">Data and EDA</a>
                 </li>
@@ -42,7 +39,6 @@
                 </li>
                 <li data-menuanchor="seventhPage" class="nav-item">
                     <a class="nav-link" href="#sixthPage">Conclusions</a>
-
                 </li>
                 <li data-menuanchor="eighthPage" class="nav-item">
                     <a class="nav-link" href="#eighthPage">Bibliography</a>
@@ -89,7 +85,21 @@
         </div>
          <div class="section">
             <h1>Literature Review</h1>
-            <p></p>
+            <p>Before diving into our project, we reviewed various sources of relevant literature, researching different tools that could help us accomplish our project goal. First, we learned as much as we could about Spotify’s internal recommendation system.<p>
+
+            <h3>Spotify’s Recommendation System</h3>
+            <p>Spotify’s music recommendation system uses a combination of three different models when creating new playlists for existing users: Collaborative filtering, Natural Language Processing (NLP), and Audio modeling. These three methods are described below.</p>
+
+            <h5>Collaborative Filtering</h5>
+            <p>Collaborative filtering is an algorithm that predicts a user’s interests based on the interests of similar peers. Spotify leverages this technique by using its wealth of customer listening data, identifying similar individuals to a target customer and creating a new playlist with songs enjoyed by those similar individuals. For example, say Spotify knows that target user X has listened to songs 3, 4, 9, and 10 while user Y has listened to songs 1, 2, 9, and 10. Using collaborative filtering, Spotify might add songs 1 and 2 to a new playlist for user X (Johnson, “Algorithmic Music Recommendations at Spotify.”).</p>
+
+            <h5>Natural Language Processing (NLP)</h5>
+            <p>Spotify analyzes text from popular blog posts, internet data, and music publications to see which songs are being commonly discussed and if songs are frequently being discussed together. Using this text analysis, Spotify attempts to cluster descriptions and adjectives to get a sense of what people think of a given song or artist. Based on this information and past user information, Spotify will attempt to predicts new songs for a target user. For example, say target user X has listened to song 1. Based on NLP information, Spotify learns that song 1 is often discussed with song 2 and is often described as “dancey”. Therefore, Spotify might suggest song 2 in a new playlist for user X along with other songs that have been identified as “dancey” (Giacaglia, “Behind Spotify Recommendation Engine.”).</p>
+
+            <h5>Audio modeling</h5>
+            <p>Using a Convolutional Neural Network, Spotify analyzes the input raw audio of every song on the service, producing comparable characteristics like time signature, key, tempo, loudness, etc., to compare songs. Therefore, if Spotify knows a target user has listening to song 1 with certain audio features, it will suggest songs with similar audio features in a new playlist. These audio features can be accessed via the Spotify developer tools (Dieleman. “Recommending Music on Spotify with Deep Learning.”).</p>
+
+            <p>Based on this research, we decided to explore an approach similar to Spotify’s audio modeling techniques in our project. With only a single input song, we do not have enough information on our base user to use collaborative filtering in an effective way. We also don’t have the bandwidth or capabilities to perform NLP with the tools we have learned in CS109. However, Spotify’s song audio features provide easily-comparable metrics by which to identify similar songs given one input track. Given this research, the goal of our data cleaning was to obtain audio features to be used for modeling in our project. This process is described in depth in the next section.</p>
 
 
             <h5>Works Cited</h5>

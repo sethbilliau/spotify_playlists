@@ -51,7 +51,7 @@
     <div id="pagepiling">
         <div class="section">
             <img src="images/spotify_logo.png" alt="spotify logo" class="center" width = "800">
-            
+
             <br/>
             <h1 class="center" style="text-align: center;">Generating Playlists with Spotify</h1>
             <li>Team members: Seth Billiau, William Drew, Sarah Lucioni</li>
@@ -70,7 +70,7 @@
 
             <p>Our project attempts to answer this question by developing such a "cold start" model, generating a new playlist for a user given just a single song. </p>
 
-            <h3>Organization of the Report</h3> 
+            <h3>Organization of the Report</h3>
             <p>After a brief literature review, this report will begin with an exploration of the dataset and its features. We will continue by explaining our methods, models, and forms of evaluation. The final sections of our project will present our results and conclusions with a brief discussion of possible extensions to our project.</p>
 
 
@@ -116,7 +116,7 @@
                  </li>
               </ol>
         </div>
- 
+
         <div class="section pp-scrollable">
             <h1>Data and EDA</h1>
             <p>Given our literature research, the goal of our data cleaning was to obtain Spotify audio features to be used for modeling in our project. This section describes that process.</p>
@@ -150,7 +150,7 @@
             <li><i>speechiness:</i> [0, 1] value determining spoken words in track (below 0.33 likely represents music, non-spoken tracks) </li>
             <li><i>tempo:</i> song's tempo in beats per minute (BPM) </li>
             <br/>
-            
+
             <p>When parsing the playlists, we ran into some problems where occasionally the Spotify API did not return a complete audio feature list when provided with specific song URIs. This prevented the entire playlist from being parsed correctly, so we handled this problem by skipping these playlists whenever we ran into this issue. We do not believe that this has any significant impact on the collection of songs we compiled as we could not identify any systematic pattern nor commonality between the problematic playlists. </p>
 
             <p>From our dataset of one million playlists, we parsed 30,000 of them and collected audio features for nearly 200,000 songs. We stopped at parsing through only 30,000 playlists due to technical limitations and time constraints. By our estimation, it would have taken us multiple days and memory usage beyond the capabilities of our laptops to parse through all one million playlists. Of course, by limiting the number of playlists we parsed, we are limiting the size of our music library that we can recommend. We decided that the first 30,000 playlists mapping to 200,000 songs provided a good enough distribution of music genres, types, and styles to provide interesting and novel recommendations to our users. </p>
@@ -158,9 +158,172 @@
             <p> </p>
             <br/>
             <h3>EDA</h3>
-            <p>After successfully extracting audio features for each song in our dataset, we began by visualizing the distribution of these audio features. 
+            <p>After successfully extracting audio features for each song in our dataset, we began by visualizing the distribution of these audio features.
 
             We then wrote a function to extract a list of the tracks in a playlist and another function to return summary statistics about the playlist’s audio features. The latter function uses the Spotify API to extract the audio features of each song in the playlist. Based on the audio features, we further explored the data by creating visualizations which are displayed in the following section. We also created visualizations based on the number of songs in a playlist and the duration (in minutes) of a playlist.</p>
+
+            <p>We looked at all nine of the music features mentioned above as possible parameters for our song suggestion model. To look at the general distribution of features for our parsed songs, we constructed boxplots for each feature as well as obtained summary statistics for each.  </p>
+
+            <img src="images/features1.png" width="80%">
+            <img src="images/features2.png" width="80%">
+
+            <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+              <tr>
+                <th class="tg-0pky"></th>
+                <th class="tg-0pky">Acousticness</th>
+                <th class="tg-0pky">Danceability</th>
+                <th class="tg-0pky">Duration_ms</th>
+                <th class="tg-0pky">Energy</th>
+                <th class="tg-0pky">Instrumentalness</th>
+                <th class="tg-0pky">Liveness</th>
+                <th class="tg-0pky">Loudness</th>
+                <th class="tg-0pky">Speechiness</th>
+                <th class="tg-0pky">Tempo</th>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Mean</td>
+                <td class="tg-0pky">0.324306</td>
+                <td class="tg-0pky">0.556000</td>
+                <td class="tg-0pky">244180.2</td>
+                <td class="tg-0pky">0.603160</td>
+                <td class="tg-0pky">0.181495</td>
+                <td class="tg-0pky">0.208895</td>
+                <td class="tg-0pky">-8.999104</td>
+                <td class="tg-0pky">0.088199</td>
+                <td class="tg-0pky">120.487872</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">StD</td>
+                <td class="tg-0pky">0.340081</td>
+                <td class="tg-0pky">0.180091</td>
+                <td class="tg-0pky">128201.5</td>
+                <td class="tg-0pky">0.256615</td>
+                <td class="tg-0pky">0.323783</td>
+                <td class="tg-0pky">0.188702</td>
+                <td class="tg-0pky">5.159350</td>
+                <td class="tg-0pky">0.107022</td>
+                <td class="tg-0pky">29.685628</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Min</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">305600</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">-60.000000</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">0.000000</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Max</td>
+                <td class="tg-0pky">0.996000</td>
+                <td class="tg-0pky">0.436000</td>
+                <td class="tg-0pky">527976.8</td>
+                <td class="tg-0pky">1.000000</td>
+                <td class="tg-0pky">1.000000</td>
+                <td class="tg-0pky">1.000000</td>
+                <td class="tg-0pky">3.744000</td>
+                <td class="tg-0pky">0.967000</td>
+                <td class="tg-0pky">247.963000</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">25%</td>
+                <td class="tg-0pky">0.019700</td>
+                <td class="tg-0pky">0.569000</td>
+                <td class="tg-0pky">188352.8</td>
+                <td class="tg-0pky">0.422000</td>
+                <td class="tg-0pky">0.000000</td>
+                <td class="tg-0pky">0.096300</td>
+                <td class="tg-0pky">-11.030000</td>
+                <td class="tg-0pky">0.035100</td>
+                <td class="tg-0pky">97.410000</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">Median</td>
+                <td class="tg-0pky">0.176000</td>
+                <td class="tg-0pky">0.691000</td>
+                <td class="tg-0pky">225801.5</td>
+                <td class="tg-0pky">0.642000</td>
+                <td class="tg-0pky">0.000207</td>
+                <td class="tg-0pky">0.128000</td>
+                <td class="tg-0pky">-7.659000</td>
+                <td class="tg-0pky">0.047000</td>
+                <td class="tg-0pky">120.025000</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">75%</td>
+                <td class="tg-0pky">0.617000</td>
+                <td class="tg-0pky">0.990000</td>
+                <td class="tg-0pky">274297</td>
+                <td class="tg-0pky">0.818000</td>
+                <td class="tg-0pky">0.163000</td>
+                <td class="tg-0pky">0.264000</td>
+                <td class="tg-0pky">-5.528000</td>
+                <td class="tg-0pky">0.086400</td>
+                <td class="tg-0pky">138.976250</td>
+              </tr>
+            </table>
+
+            <p>From these boxplots, we see that the distributions for acousticness, dancability, and energy are relatively wide. This indicates that the songs in our dataset are especially varied with respect to these three parameters, indicating three parameters that could be significant when developing our model to generate song suggestions. The other parameters - instrumentalness, liveness, and speechiness - do not have as wide of a distribution, indicating that it could be difficult to differentiate songs from one another using these features. We observed similar trends for duration, tempo, and loudness. </p>
+
+            <p>We also looked at lengths of playlists in our parsed dataset - both in number of songs and total duration in minutes. We found that playlists tended to have around 50 songs as a good generalization and tended to have a total running time of roughly 4 hours. This gives us a good idea for how long our suggested playlists should be.  </p>
+
+
+            <img src="images/songcount.png" width="40%" >
+            <img src="images/duration.png" width="40%" >
+
+            <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+            .tg .tg-cly1{text-align:left;vertical-align:middle}
+            .tg .tg-0lax{text-align:left;vertical-align:top}
+            </style>
+            <table class="tg">
+              <tr>
+                <th class="tg-cly1"></th>
+                <th class="tg-cly1">Playlist Song Count</th>
+                <th class="tg-0lax">Playlist Duration (min)</th>
+              </tr>
+              <tr>
+                <td class="tg-cly1">Mean</td>
+                <td class="tg-cly1">66.346</td>
+                <td class="tg-0lax">259.661</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">StD</td>
+                <td class="tg-cly1">53.669</td>
+                <td class="tg-0lax">214.273</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">Median</td>
+                <td class="tg-cly1">49.0</td>
+                <td class="tg-0lax">190.373</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">Max</td>
+                <td class="tg-cly1">376</td>
+                <td class="tg-0lax">10584.563</td>
+              </tr>
+              <tr>
+                <td class="tg-cly1">Min</td>
+                <td class="tg-cly1">5</td>
+                <td class="tg-0lax">1.625</td>
+              </tr>
+            </table>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
+            <p> </p>
             <p> </p>
             <br/>
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CS 109a Project</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.pagepiling.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -12,7 +12,7 @@
 
 <!-- Top nav bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
-        <a class="navbar-brand" href="#">CS 109 Project</a>
+        <a class="navbar-brand" href="#">CS 109a Project</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,16 +49,77 @@
 
 <!-- Page piling, to create a new page, add a new div with class "section" -->
     <div id="pagepiling">
-        <div class="section">
+        <div class="section pp-scrollable">
             <img src="images/spotify_logo.png" alt="spotify logo" class="center" width = "800">
 
-            <br/>
-            <h1 class="center" style="text-align: center;">Generating Playlists with Spotify</h1>
-            <li>Team members: Seth Billiau, William Drew, Sarah Lucioni</li>
-            <li>Assigned TF: Nathan Hollenberg</li>
-            <li>Last edited: 12/11/2019</li>
-            <li>Group ID: 56</li>
+            <br><br><br>
+            <h1 style="text-align: center;">Exploring the Cold Start Problem via Spotify</h1>
+            <br>
+            <div style="text-align: center;">
+                <p><b>Team members:</b> Seth Billiau, William Drew, Sarah Lucioni</p>
+                <p><b>Project TF:</b> Nathan Hollenberg</p>
+                <p><b>Last edited:</b> 12/11/2019</p>
+                <p><b>Group ID:</b> 56</p>
+            </div>
+
+            <br>
+            <div class="outline-div">
+                <h5>Project Outline</h5>
+                <ul class="no-blt-list">
+                    <li><a href="#secondPage">Abstract</a></li>
+                    <ul class="no-blt-list">
+                        <li>Motivation and Project Questions</li>
+                        <li>Organization of the Report</li>
+                        <li>Works Cited</li>
+                    </ul>
+
+                    <li><a href="#thirdPage">Literature Review</a></li>
+                    <ul class="no-blt-list">
+                        <li>Spotify's Recommendation System</li>
+                        <ul class="no-blt-list">
+                            <li>Collaborative Filtering</li>
+                            <li>Natural Language Processing</li>
+                            <li>Audio Modeling</li>
+                            <li>Works Cited</li>
+                        </ul>
+                    </ul>
+
+                    <li><a href="#fourthPage">Data and EDA</a></li>
+                    <ul class="no-blt-list">
+                        <li>Data Sources and Features</li>
+                        <li>EDA</li>
+                    </ul>
+
+                    <li><a href="#fifthPage">Methods and Models</a></li>
+                    <ul class="no-blt-list">
+                        <li>Model Type and Description</li>
+                        <li>Data</li>
+                        <li>Response and Predictor Variables</li>
+                        <li>Model</li>
+                        <ul class="no-blt-list">
+                            <li>k-Nearest Neighbors</li>
+                            <li>k-Means Clustering</li>
+                            <li>k-Nearest Neighbors vs. k-Means Clustering</li>
+                        </ul>
+                        <li>Final Models</li>
+                        <li>Works Cited</li>
+                    </ul>
+
+                    <li><a href="#sixthPage">Results: Evaluating our Predicted Playlists</a></li>
+                    <ul class="no-blt-list">
+                        <li>Deviation from Seed Song Audio Features</li>
+                        <li>Selecting Seed Songs</li>
+                        <li>Results</li>
+                        <li>Works Cited</li>
+                    </ul>
+
+                    <li><a href="#seventhPage">Conclusions</a></li>
+
+                    <li><a href="#eighthPage">Bibliography</a></li>
+                </ul>
+            </div>
         </div>
+
         <div class="section pp-scrollable">
             <h1>Abstract</h1>
             <h3>Motivation and Project Questions</h3>
@@ -164,30 +225,25 @@
 
             <p>We looked at all nine of the music features mentioned above as possible parameters for our song suggestion model. To look at the general distribution of features for our parsed songs, we constructed boxplots for each feature as well as obtained summary statistics for each.  </p>
 
-            <img src="images/features1.png" width="80%">
-            <img src="images/features2.png" width="80%">
+            <img class="center-img" src="images/features1.png" width="80%">
+            <img class="center-img" src="images/features2.png" width="80%">
 
-            <style type="text/css">
-            .tg  {border-collapse:collapse;border-spacing:0;}
-            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-            .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-            </style>
+            <br>
             <table class="tg">
               <tr>
-                <th class="tg-0pky"></th>
-                <th class="tg-0pky">Acousticness</th>
-                <th class="tg-0pky">Danceability</th>
-                <th class="tg-0pky">Duration_ms</th>
-                <th class="tg-0pky">Energy</th>
-                <th class="tg-0pky">Instrumentalness</th>
-                <th class="tg-0pky">Liveness</th>
-                <th class="tg-0pky">Loudness</th>
-                <th class="tg-0pky">Speechiness</th>
-                <th class="tg-0pky">Tempo</th>
+                <th class="tg-0pky row-col-title"></th>
+                <th class="tg-0pky row-col-title">Acousticness</th>
+                <th class="tg-0pky row-col-title">Danceability</th>
+                <th class="tg-0pky row-col-title">Duration_ms</th>
+                <th class="tg-0pky row-col-title">Energy</th>
+                <th class="tg-0pky row-col-title">Instrumentalness</th>
+                <th class="tg-0pky row-col-title">Liveness</th>
+                <th class="tg-0pky row-col-title">Loudness</th>
+                <th class="tg-0pky row-col-title">Speechiness</th>
+                <th class="tg-0pky row-col-title">Tempo</th>
               </tr>
               <tr>
-                <td class="tg-0pky">Mean</td>
+                <td class="tg-0pky row-col-title">Mean</td>
                 <td class="tg-0pky">0.324306</td>
                 <td class="tg-0pky">0.556000</td>
                 <td class="tg-0pky">244180.2</td>
@@ -199,7 +255,7 @@
                 <td class="tg-0pky">120.487872</td>
               </tr>
               <tr>
-                <td class="tg-0pky">StD</td>
+                <td class="tg-0pky row-col-title">StD</td>
                 <td class="tg-0pky">0.340081</td>
                 <td class="tg-0pky">0.180091</td>
                 <td class="tg-0pky">128201.5</td>
@@ -211,7 +267,7 @@
                 <td class="tg-0pky">29.685628</td>
               </tr>
               <tr>
-                <td class="tg-0pky">Min</td>
+                <td class="tg-0pky row-col-title">Min</td>
                 <td class="tg-0pky">0.000000</td>
                 <td class="tg-0pky">0.000000</td>
                 <td class="tg-0pky">305600</td>
@@ -223,7 +279,7 @@
                 <td class="tg-0pky">0.000000</td>
               </tr>
               <tr>
-                <td class="tg-0pky">Max</td>
+                <td class="tg-0pky row-col-title">Max</td>
                 <td class="tg-0pky">0.996000</td>
                 <td class="tg-0pky">0.436000</td>
                 <td class="tg-0pky">527976.8</td>
@@ -235,7 +291,7 @@
                 <td class="tg-0pky">247.963000</td>
               </tr>
               <tr>
-                <td class="tg-0pky">25%</td>
+                <td class="tg-0pky row-col-title">25%</td>
                 <td class="tg-0pky">0.019700</td>
                 <td class="tg-0pky">0.569000</td>
                 <td class="tg-0pky">188352.8</td>
@@ -247,7 +303,7 @@
                 <td class="tg-0pky">97.410000</td>
               </tr>
               <tr>
-                <td class="tg-0pky">Median</td>
+                <td class="tg-0pky row-col-title">Median</td>
                 <td class="tg-0pky">0.176000</td>
                 <td class="tg-0pky">0.691000</td>
                 <td class="tg-0pky">225801.5</td>
@@ -259,7 +315,7 @@
                 <td class="tg-0pky">120.025000</td>
               </tr>
               <tr>
-                <td class="tg-0pky">75%</td>
+                <td class="tg-0pky row-col-title">75%</td>
                 <td class="tg-0pky">0.617000</td>
                 <td class="tg-0pky">0.990000</td>
                 <td class="tg-0pky">274297</td>
@@ -272,66 +328,56 @@
               </tr>
             </table>
 
+            <br>
             <p>From these boxplots, we see that the distributions for acousticness, dancability, and energy are relatively wide. This indicates that the songs in our dataset are especially varied with respect to these three parameters, indicating three parameters that could be significant when developing our model to generate song suggestions. The other parameters - instrumentalness, liveness, and speechiness - do not have as wide of a distribution, indicating that it could be difficult to differentiate songs from one another using these features. We observed similar trends for duration, tempo, and loudness. </p>
 
             <p>We also looked at lengths of playlists in our parsed dataset - both in number of songs and total duration in minutes. We found that playlists tended to have around 50 songs as a good generalization and tended to have a total running time of roughly 4 hours. This gives us a good idea for how long our suggested playlists should be.  </p>
 
+            <div class="two-imgs">
+                <img class="center-img" src="images/songcount.png" width="45%">
+                <img class="center-img" src="images/duration.png" width="45%">
+            </div>
 
-            <img src="images/songcount.png" width="40%" >
-            <img src="images/duration.png" width="40%" >
-
-            <style type="text/css">
-            .tg  {border-collapse:collapse;border-spacing:0;}
-            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-            .tg .tg-cly1{text-align:left;vertical-align:middle}
-            .tg .tg-0lax{text-align:left;vertical-align:top}
-            </style>
+            <br>
             <table class="tg">
               <tr>
-                <th class="tg-cly1"></th>
-                <th class="tg-cly1">Playlist Song Count</th>
-                <th class="tg-0lax">Playlist Duration (min)</th>
+                <th class="tg-0pky row-col-title"></th>
+                <th class="tg-0pky row-col-title">Playlist Song Count</th>
+                <th class="tg-0pky row-col-title">Playlist Duration (min)</th>
               </tr>
               <tr>
-                <td class="tg-cly1">Mean</td>
-                <td class="tg-cly1">66.346</td>
-                <td class="tg-0lax">259.661</td>
+                <td class="tg-0pky row-col-title">Mean</td>
+                <td class="tg-0pky">66.346</td>
+                <td class="tg-0pky">259.661</td>
               </tr>
               <tr>
-                <td class="tg-cly1">StD</td>
-                <td class="tg-cly1">53.669</td>
-                <td class="tg-0lax">214.273</td>
+                <td class="tg-0pky row-col-title">StD</td>
+                <td class="tg-0pky">53.669</td>
+                <td class="tg-0pky">214.273</td>
               </tr>
               <tr>
-                <td class="tg-cly1">Median</td>
-                <td class="tg-cly1">49.0</td>
-                <td class="tg-0lax">190.373</td>
+                <td class="tg-0pky row-col-title">Median</td>
+                <td class="tg-0pky">49.0</td>
+                <td class="tg-0pky">190.373</td>
               </tr>
               <tr>
-                <td class="tg-cly1">Max</td>
-                <td class="tg-cly1">376</td>
-                <td class="tg-0lax">10584.563</td>
+                <td class="tg-0pky row-col-title">Max</td>
+                <td class="tg-0pky">376</td>
+                <td class="tg-0pky">10584.563</td>
               </tr>
               <tr>
-                <td class="tg-cly1">Min</td>
-                <td class="tg-cly1">5</td>
-                <td class="tg-0lax">1.625</td>
+                <td class="tg-0pky row-col-title">Min</td>
+                <td class="tg-0pky">5</td>
+                <td class="tg-0pky">1.625</td>
               </tr>
             </table>
-            <p> </p>
-            <p> </p>
-            <p> </p>
-            <p> </p>
-            <p> </p>
-            <p> </p>
+            <br><br><br><br>
             <br/>
 
         </div>
 
         <div class="section pp-scrollable">
             <h1>Methods and Models</h1>
-            <h3>Model Type and Description</h3>
             <p>To address our question of how to generate a new playlist for a new user given minimal user information, we first considered the data we would use, the transformations we would need to apply, the output we wanted, and the input needed to predict the output before deciding on a model type. Rewording our problem statement, our model must predict a playlist given minimal user information.</p>
 
             <h3>Data</h3>
@@ -346,13 +392,13 @@
             <h3>Model</h3>
             <p>With one seed song, a natural approach suggests creating a playlist from the n closest songs to the seed. This motivates our first set of models: <b>k-Nearest Neighbors</b> based. Our second set of models is a logical comparison to the first: <b>k-Means Clustering</b> based. Let us first define each type of model, then discuss the differences, and finally, present our constructed models.<p>
 
-            <h3>k-Nearest Neighbors</h3>
+            <h5>k-Nearest Neighbors</h5>
             <p>k-NN models are supervised machine learning algorithms used for classification or regression. Typically, the k nearest neighbors are accessed to predict the classification (most frequently occurring class in the k) or regression (mean of the k nearest neighbors). The k-NN algorithm is an instance of lazy learning which means that the computation is deferred until it must output a prediction (“Machine Learning Basics with the K-Nearest Neighbors Algorithm”). One variation of a k-NN model is the choice of distance metric. A proper distance metric must satisfy three properties:</p>
 
             <ol>
               <li>d(x, x) = 0, The distance between the same point equals 0.</li>
               <li>d(x, x’) = d(x’, x), The distance function must be symmetric.</li>
-              <li>d(x, x’’)  d(x, x’) + d(x’, x’’), The triangle inequality must hold.</li>
+              <li>d(x, x’’) = d(x, x’) + d(x’, x’’), The triangle inequality must hold.</li>
             </ol>
 
             <p>Euclidean distance is commonly the selected distance metric for k-NN. However, cosine similarity may be effective in some cases. Cosine similarity does not respect the above properties, but may be used as a distance metric if appropriately treated within the model. The choice of distance metric presents the first variation in our set of k-NN models. We create one set of models using euclidean distance and a second set using cosine similarity.</p>
@@ -360,13 +406,13 @@
             <p>In our set of k-NN based models, instead of computing an averaged prediction from the k nearest neighbors, our prediction <i>will</i> be the k nearest neighbors. Furthermore, <i>k = n</i> (where n is one of the input parameters).</p>
             <p>In the future, possible improvements include creating a weighted k-NN model. The songs could be weighted by popularity/occurrence in the training set, how close they are to the original song, or by some other feature we wish to include. </p>
 
-            <h3>k-Means Clustering</h3>
+            <h5>k-Means Clustering</h5>
             <p>k-Means Clustering is unsupervised machine learning algorithm which aims to split n observations (songs) into k clusters based on the nearest mean. k-Means is an NP-hard problem which means that it is computationally difficult to find the best answer (“K-Means Clustering”). Problems in NP are believed to not be solvable in polynomial time, however, this has not been proven (“Rocchio Algorithm”). However, efficient algorithms which converge to a local optimum exist.</p>
 
             <p>k-Means can work well even when data is not on the same scale. To be consistent with our k-NN based models, we will construct a set of k-Means models which include vs. omit tempo from the training data. </p>
             <p>Since we want our model to predict a playlist, we will have to slightly modify our k-Means model. To do so, we will construct a k-Means model, then we will predict the cluster the seed song belongs to. This cluster will become the selected cluster. A random sample of <i>n</i> songs will be drawn from the cluster and will create the predicted playlist. We randomly select the songs from the predicted cluster so as to better test the clustering functionality of the k-Means model.  </p>
             <p>In the future, we could implement a smarter selection criteria for selecting songs within a cluster. A smarter choice would be to implement a k-NN model within a cluster to select the <i>n</i> songs. This variation is known as the Rocchio algorithm (“Rocchio Algorithm”). We did not want to test this variation because it blurs the line between k-NN and k-Means which we wish to keep clear for the sake of our model comparisons.</p>
-            <h3>k-Nearest Neighbors vs. k-Means Clustering</h3>
+            <h5>k-Nearest Neighbors vs. k-Means Clustering</h5>
             <p>There are a few clear differences between the k-NN and k-Means algorithms. First, k-NN solves a classification or regression problem while k-Means solves a clustering problem. Second, as explained above, k-NN is a lazy learner while k-Means is an eager learner. A lazy learner saves computation until absolutely needed as we observe in k-NN. An eager learner has a training step which creates and fits a model. Finally, as discussed above, k-NN functions much better if the data is all on the same scale while k-Means does not have this same constraint (Dhiraj).</p>
             <p>Comparing these two sets of models allows us to compare a human tailored selection model (k-NN based) to a computer selection model (k-Means Clustering based). We will use this comparison as a testing metric discussed in the Results section. </p>
 
@@ -381,6 +427,93 @@
 
             <p>We decided to omit comparison to normalized tempo after testing normalized tempo and seeing that the playlists constructed with tempo normalized typically consist of songs missing the audio features we aim to test. Missing these audio features breaks our testing metric making it hard to compare to the other models. For this reason, we decided to omit normalization of tempo.</p>
 
+            <p>Here is our general k-NN model:</p>
+            <img class="center-img" src="images/knn_model_img.png" width="85%">
+            <br>
+            <p>Our general k-NN model is used to construct each of the four models. The inputs are the dataframe of songs to train the model on, the seed song to create a playlist from, the length of the desired playlist, the desired distance metric, and a boolean representing whether or not to include tempo in the model.</p>
+
+            <p>We first define the desired audio feature columns with and without tempo. Then we convert the seed song to a dataframe of it’s audio features. If the distance metric is cosine similarity, we compare the songs dataframe to the seed song using cosine similarity. Then, we sort the values in descending order because a higher cosine similarity means that the song at hand is more similar to the seed song. If the distance metric is euclidean distance, we compare the songs dataframe to the seed song using euclidean distance. Then, we sort the values in ascending order because a smaller euclidean distance means that the song at hand is closer to the seed song. In both cases, we take the top n best values. We then extract and return the index of these values. From these indices, we can find the corresponding song by matching the index in the songs dataframe.</p>
+
+            <p>Using the indices returned from the k-NN model, we print out the playlist as follows:</p>
+            <img class="center-img" src="images/playlist_printer.png" width="85%">
+            <br>
+            <p>Looping through the indices, we locate each song in the songs dataframe. Then, we use the track uri to access the Spotify API and extract human readable information which we print to the screen. This includes the track name and track artists. Simultaneously, we append the track’s audio features to a dataframe so we also have a numerical view of the playlist which will be used in testing.</p>
+
+            <p>Now, we use the k-NN model and the playlist printer to define the four k-NN models:</p>
+            <img class="center-img" src="images/knn_models.png" width="85%">
+            <br>
+            <p>In order to quickly run and analyze all four models, we create a function which runs all of the models and creates a dataframe of the mean audio feature values for each predicted playlist.</p>
+            <img class="center-img" src="images/run_all_knn.png" width="85%">
+            <br>
+            <p>We also add the seed song’s audio features to the mean dataframe to have a comparison value. Furthermore, we fill NaN values in the mean dataframe with 0 to maintain uniformity with Spotify’s functionality (Spotify returns 0 for audio features that are not recorded).</p>
+
+            <p>Sample output from <code>run_all_knn</code> using Michael Bublé’s <i>It’s Beginning to Look a lot Like Christmas</i> as the seed song is as follows:</p>
+
+            <div class="center-frame">
+                <iframe class="spotify-song" src="https://open.spotify.com/embed/track/5a1iz510sv2W9Dt1MvFd5R" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+            <div class="two-imgs">
+                <img class="center-img" src="images/playlist_knn_et.png" width="24%">
+                <img class="center-img" src="images/playlist_knn_ent.png" width="24%">
+                <img class="center-img" src="images/playlist_knn_ct.png" width="24%">
+                <img class="center-img" src="images/playlist_knn_cnt.png" width="24%">
+            </div>
+
+            <div class="two-imgs">
+                <iframe class="center-img" src="https://open.spotify.com/embed/playlist/6q0RLVuPRJpYDoYQ3hMWpC?si=elLzU2HcSzulCwtOgs8Qyg" width="24%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class="center-img" src="https://open.spotify.com/embed/playlist/7qjXPO8GmAYBBF40yxbIR6?si=X67AdgnYT7WCoh9XXnRu6Q" width="24%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class="center-img" src="https://open.spotify.com/embed/playlist/57G0IpR7PrayUWwy9fCCXO?si=y8lm-vJUSranqYcI-bEwaQ" width="24%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class="center-img" src="https://open.spotify.com/embed/playlist/3xIwbMFpDPze2x6Knt6u1c?si=bCVwuSUqSvqiT85VKCgasg" width="24%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+            <br>
+            <img class="center-img" src="images/knn_output.png" width="70%">
+            <br>
+
+            <p>Next, we have our k-Means Clustering model. The set up is similar to the k-NN model. We first have a general k-Means model. Then, we use this function to construct the two separate models. Finally, we have a function which runs both models, prints the predicted playlists, and returns a means dataframe for analysis and testing purposes.</p>
+
+            <p>Here is our general k-Means Clustering model:</p>
+            <img class="center-img" src="images/kmeans_model_img.png" width="85%">
+            <br>
+
+            <p>Our general k-Means Clustering model is used to construct both k-Means models. The inputs are the number <i>k</i> of clusters, the dataframe of songs to train the model on, the seed song to create a playlist from, the length of the desired playlist, a boolean representing whether or not to include tempo in the model, and the k-Means model if it has previously been generated. Differently from k-NN, we only need to train the model once because k-Means Clustering is an eager learner.</p>
+
+            <p>We first define the dataframe with the desired audio feature columns with and without tempo. If a k-Means model has already been fit, then we do not train another model. Otherwise, we must train and fit a k-Means model. Then, we use the k-Means model to predict the clusters for all of the songs. We convert the seed song to a dataframe of it’s audio features and predict the song’s corresponding cluster. Finally, we randomly select <i>n</i> songs from the seed song’s predicted cluster. We then extract and return the index of these values. From these indices, we can find the corresponding song by matching the index in the songs dataframe. We use the playlist printer defined above for the k-Means models as well.</p>
+
+            <p>Now, we use the k-Means Clustering model and the playlist printer to define the two k-Means models:</p>
+            <img class="center-img" src="images/kmeans_models.png" width="85%">
+            <br>
+
+            <p>To store and reuse the k-Means models, we create two global variables. If we want to refit the models, then we call the <code>reset_models</code> function:</p>
+            <img class="center-img" src="images/reset_models.png" width="85%">
+            <br>
+
+            <p>In order to quickly run and analyze all four models, we create a function which runs all of the models and creates a dataframe of the mean audio feature values for each predicted playlist.</p>
+            <img class="center-img" src="images/run_all_kmeans.png" width="85%">
+            <br>
+
+            <p>Sample output from <code>run_all_kmeans</code> using Michael Bublé’s <i>It’s Beginning to Look a lot Like Christmas</i> as the seed song is as follows:</p>
+
+            <div class="center-frame">
+                <iframe class="spotify-song" src="https://open.spotify.com/embed/track/5a1iz510sv2W9Dt1MvFd5R" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+            <div class="two-imgs">
+                <img class="center-img" src="images/playlist_kmeans_t.png" width="40%">
+                <img class="center-img" src="images/playlist_kmeans_nt.png" width="40%">
+            </div>
+
+            <div class="two-imgs">
+                <iframe class="center-img" src="https://open.spotify.com/embed/playlist/018Fpy0XFu5yklnT094LCb?si=FBH4_04LR0-JTx1WkF5VFQ" width="24%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class="center-img" src="https://open.spotify.com/embed/playlist/6wyWoCDRJldSZdsRo2ZMj6?si=9gSZWoAtTp6s2WJwuX-7xw" width="24%" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            </div>
+
+            <br>
+            <img class="center-img" src="images/kmeans_output.png" width="70%">
+            <br>
+
+            <p>In the next section, we will test and explore the results produced from using these six models.</p>
+            <br>
 
             <h5>Works Cited</h5>
               <ol>

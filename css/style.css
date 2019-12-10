@@ -1,6 +1,8 @@
 .section {
-    background-color: #d7d7d7;
-    padding: 50px;
+    /*background-color: #d7d7d7;*/
+    padding: 25px 150px 100px 150px;
+    background-image: url("https://blog.spoongraphics.co.uk/wp-content/uploads/2012/textures/18.jpg");
+    background-repeat: repeat;
 }
 
 nav {
@@ -15,10 +17,10 @@ nav {
 }
 
 .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 
 /* do not center the text within each page */
@@ -26,3 +28,72 @@ nav {
     vertical-align: baseline;
 }
 
+.outline-div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.no-blt-list {
+    list-style-type:none
+}
+
+.center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Data and EDA table*/
+.tg {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tg td, th {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    overflow: hidden;
+    word-break: normal;
+}
+
+.tg tr:nth-child(even) {
+    background-color: #dadada;
+}
+
+.tg tr:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+
+.tg .tg-0pky {
+    border-color: #a0a0a0;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tg .row-col-title {
+    font-weight: bold;
+}
+
+.two-imgs {
+    display: flex;
+    padding: 5px;
+}
+
+.spotify-song {
+    margin: 5px 0px 5px 10px;
+    display: flex;
+    padding: 5px;
+}
+
+.center-frame {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+}

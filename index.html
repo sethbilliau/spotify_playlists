@@ -1027,7 +1027,7 @@
         </div>
 
         <div class="section pp-scrollable">
-            <h1>Conclusions</h1>
+            <h1>Summary of Results</h1>
                        <p>
             Below is a table of the average sums of squared error for all models across all tested seed songs.
             </p>
@@ -1043,32 +1043,63 @@
                         <th class="tg-0pky row-col-title">
                             k-NN, 
                             euclidean distance, 
-                            no tempo
+                            tempo included
                         </th>      
                         <td class="tg-0pky">0.002360</td>    
                     </tr>    
                         <tr>      
-                        <th class="tg-0pky row-col-title">k-NN/sim/tempo</th>      
+                        <th class="tg-0pky row-col-title">
+                            k-NN,
+                            euclidean distance,
+                            tempo excluded
+                        </th>       
                         <td class="tg-0pky">0.013097</td>    
                     </tr>    
                         <tr>      
-                        <th class="tg-0pky row-col-title">k-NN/sim/no tempo</th>      
+                        <th class="tg-0pky row-col-title">
+                            k-NN, 
+                            cosine similarity,
+                            tempo included
+                        </th>      
                         <td class="tg-0pky">0.014297</td>    
                     </tr>    
                         <tr>      
-                        <th class="tg-0pky row-col-title">k-NN/euclid/tempo</th>      
+                        <th class="tg-0pky row-col-title">
+                            k-NN, 
+                            cosine similarity,
+                            tempo excluded
+                        </th>      
                         <td class="tg-0pky">0.022173</td>    
                     </tr>    
                         <tr>      
-                        <th class="tg-0pky row-col-title">k-means/k=50/tempo</th>      
+                        <th class="tg-0pky row-col-title">
+                            k-means clustering, 
+                            k=50, 
+                            tempo included
+                        </th>      
                         <td class="tg-0pky">0.382007</td>    
                     </tr>    
                         <tr>      
-                        <th class="tg-0pky row-col-title">k-means/k=50/no tempo</th>      
+                        <th class="tg-0pky row-col-title">
+                            k-means clustering,
+                            k=50, 
+                            tempo excluded
+                        </th>       
                         <td class="tg-0pky">0.393498</td>    
                     </tr>  
                 </tbody>
             </table>
+
+            <h1>Conclusions</h1>
+            <p>Now that we have evaluative data on our playlist-generating models, we can draw some conclusions on which of our models are best suited to solve the cold start problem. We will refer to model class as whether or not tempo was included as a predictor, comparing models across class. We will also compare classes of models across three types: k-NN euclidean distance, k-NN cosine similarity, k-Means clustering.</p>
+
+            <h3>Model Class: Tempo included vs. Tempo excluded</h3>
+            <p> On a whole, models tempo included 
+                In both of our classes of models, our best model in terms of our evaluative metric is the k-NN model that excludes tempo as a predictor. With an average SSE of 0.002360, 
+            </p>
+            <h3>Model Type: </h3>
+
+
 
         </div>
         <div class="section pp-scrollable">

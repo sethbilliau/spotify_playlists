@@ -1091,16 +1091,21 @@
             </table>
 
             <h1>Conclusions</h1>
-            <p>Now that we have evaluative data on our playlist-generating models, we can draw some conclusions on which of our models are best suited to solve the cold start problem. We will refer to model class as whether or not tempo was included as a predictor, comparing models across class. We will also compare classes of models across three types: k-NN euclidean distance, k-NN cosine similarity, k-Means clustering.</p>
-
-            <h3>Model Class: Tempo included vs. Tempo excluded</h3>
-            <p> On a whole, models tempo included 
-                In both of our classes of models, our best model in terms of our evaluative metric is the k-NN model that excludes tempo as a predictor. With an average SSE of 0.002360, 
+            <p>Now that we have evaluative data on our playlist-generating models, we can draw some conclusions on which of our models are best suited to solve the cold start problem. We will compare classes of models across our three types, k-NN euclidean distance, k-NN cosine similarity, and k-Means clustering, and across our two tempo statuses, included and excluded. 
             </p>
-            <h3>Model Type: </h3>
+             <p>Note that in tempo-included models, the underlying model has an extra term for tempo that must be minimized (an extra dimension in our euclidean distance, cosine similarity, or k-means algorithm). Minimizing that extra term to get songs that are closer in tempo will affect how similar the the other audio features are to our seed song. Note, again, that for aforementioned reasons, tempo is unnormalized (see Methods and Models). We can expect the impact of tempo’s inclusion to vary across model type.</p>
+            <p>
+            With that being said, our best overall model in terms of our evaluative metric is the k-NN model that excludes tempo as a predictor and uses euclidean distance. With an average SSE of 0.002360, this model’s playlist songs had relevant audio features that were closest to the seed song on average, outperforming the next best model (k-NN cosine similarity, no tempo) by 0.010737.</p> 
+            <p>However, when tempo is introduced into the mix as a predictor, the k-NN euclidean distance model performed nearly 10 times worse than before. This can be attributed to the fact that tempo was unnormalized as a predictor. Since euclidean distance is especially sensitive to differences in scale, it makes sense that there is such a dramatic decrease in accuracy when tempo is included as an algorithm with euclidean distance overcorrects by ensuring tempo is similar at the cost of ensuring other audio features are similar.
+            </p>
+            <p>Though, as mentioned, k-NN models using cosine similarity performed significantly worse than the k-NN euclidean distance model, it is worth noting that they are much less sensitive to the inclusion of the unstandardized tempo variable with an absolute difference in SSE of 0.0012. This makes sense as cosine similarity, in general, is less sensitive to the inclusion of many parameters on different scales than euclidean distance. 
+            </p>
+            <p>The clear worst of the three methods, as expected, is k-Means clustering. k-Means performs over an order of magnitude worse than our other models. To improve this model, we could cross validate for a better <i>k</i> or find some more sophisticated way to chose songs within a cluster. The k-Means model we have now, however, doesn’t seem like the best way to construct a cold start playlist. It is interesting that the overall similarity SSE score actually goes down with the inclusion of tempo for the k-Means clustering algorithm. This makes sense upon further analysis as another degree of freedom on which to create clusters should make clusters more similar within group.</p>
 
-
-
+            <h3>Final Thoughts</h3>
+            <p>
+            TODO
+            </p>
         </div>
         <div class="section pp-scrollable">
             <h1>Full Bibliography</h1>

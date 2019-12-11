@@ -1157,11 +1157,18 @@
             </p>
             <p>The clear worst of the three methods, as expected, is k-Means clustering. k-Means performs over an order of magnitude worse than our other models. To improve this model, we could cross validate for a better <i>k</i> or find some more sophisticated way to choose songs within a cluster. The k-Means model we have now, however, doesn’t seem like the best way to construct a cold start playlist. It is interesting that the overall similarity SSE score actually goes down with the inclusion of tempo for the k-Means clustering algorithm. This makes sense upon further analysis as another degree of freedom on which to create clusters should make clusters more similar within group.</p>
 
-            <h3>Final Thoughts</h3>
+            <h3>Final Thoughts and Future Extensions<h3>
             <p>
-            Overall, our k-NN model using euclidean distance and excluding tempo performs the best in terms of producing songs that have similar audio features to the seed song. If the goals is to generate a playlist with songs that have similar audio features and similar tempos, one would be best served choosing the k-NN model using cosine similarity with tempo included. 
+            Overall, our k-NN model using euclidean distance and excluding tempo performs the best in terms of producing songs that have similar audio features to the seed song. 
             </p>
-
+            <p>
+            If the goals is to generate a playlist with songs that have similar audio features and similar tempos, one would be best served choosing the k-NN model using cosine similarity with tempo included based on the metric we created. However, a better way to solve that problem would be to include a properly-normalized version of tempo as a residual in the loss function. If evaluating playlists wasn't so computationally expensive, we would have re-run our models using this separate loss function. 
+            </p>
+            <p>
+            A future extension of this project could consider weighting certain songs over others. For example, this model might work better if we were able to obtain the genre of the input song. Using that information, we could up-weight songs of the same genre when doing our calculation of Euclidean distance (essentially penalizing songs outside of the genre) to playlists that will likely be more thematically similar. </p>
+            <p>
+            We also considered weighting by how frequently songs show up in playlists. This would be advantageous if we wanted our playlists to prioritize popular songs over less popular songs (or vice-versa). We could do this using existing data, counting how many playlists a given song shows up in. Unfortunately, we did not have the bandwidth to explore weighting given the time constraints of this project. However, this is certainly something to be considered in the future.
+            </p>
         </div>
         <div class="section pp-scrollable">
             <h1>Full Bibliography</h1>

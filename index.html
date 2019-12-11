@@ -60,6 +60,7 @@
                 <p><b>Project TF:</b> Nathan Hollenberg</p>
                 <p><b>Last edited:</b> 12/11/2019</p>
                 <p><b>Group ID:</b> 56</p>
+                <p><b>Github:</b> <a href="https://github.com/sethbilliau/spotify_playlists" target="_blank"> spotify_playlists</a></p>
             </div>
 
             <br>
@@ -574,484 +575,484 @@
             <p>
             Below is a table of sums of squared error results for all models for each of the tested seed songs.
             </p>
-            <table class="tg">  
-                <thead>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Model</th>      
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Model</th>
                         <th class="tg-0pky row-col-title">
                             k-NN,
-                            euclidean distance, 
+                            euclidean distance,
                             tempo included
-                        </th>      
+                        </th>
                         <th class="tg-0pky row-col-title">
                             k-NN,
                             euclidean distance,
                             tempo excluded
-                        </th>      
+                        </th>
                         <th class="tg-0pky row-col-title">
-                            k-NN, 
+                            k-NN,
                             cosine similarity,
                             tempo included
                         </th>
                         <th class="tg-0pky row-col-title">
-                            k-NN, 
+                            k-NN,
                             cosine similarity,
                             tempo excluded
-                        </th>      
-                        <th class="tg-0pky row-col-title">
-                            k-means clustering, 
-                            k=50, 
-                            tempo included
-                        </th>      
+                        </th>
                         <th class="tg-0pky row-col-title">
                             k-means clustering,
-                            k=50, 
+                            k=50,
+                            tempo included
+                        </th>
+                        <th class="tg-0pky row-col-title">
+                            k-means clustering,
+                            k=50,
                             tempo excluded
-                        </th>    
-                    </tr>  
-                </thead>  
-                <tbody>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Senorita</th>      
-                        <td class="tg-0pky">0.004108</td>      
-                        <td class="tg-0pky">0.000153</td>      
-                        <td class="tg-0pky">0.000804</td>      
-                        <td class="tg-0pky">0.000218</td>      
-                        <td class="tg-0pky">0.163915</td>      
-                        <td class="tg-0pky">0.134497</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Yo-Yo Ma Cello Suite No. 1 in G Major</th>      
-                        <td class="tg-0pky">0.007471</td>      
-                        <td class="tg-0pky">0.000957</td>      
-                        <td class="tg-0pky">0.008852</td>      
-                        <td class="tg-0pky">0.006980</td>      
-                        <td class="tg-0pky">1.112812</td>      
-                        <td class="tg-0pky">1.121155</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Suge</th>      
-                        <td class="tg-0pky">0.055340</td>      
-                        <td class="tg-0pky">0.000941</td>      
-                        <td class="tg-0pky">0.010914</td>      
-                        <td class="tg-0pky">0.018576</td>      
-                        <td class="tg-0pky">0.332391</td>      
-                        <td class="tg-0pky">0.391957</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">bad guy</th>      
-                        <td class="tg-0pky">0.045853</td>      
-                        <td class="tg-0pky">0.011441</td>      
-                        <td class="tg-0pky">0.015858</td>      
-                        <td class="tg-0pky">0.014628</td>      
-                        <td class="tg-0pky">0.139678</td>      
-                        <td class="tg-0pky">0.144949</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">SICKO MODE</th>      
-                        <td class="tg-0pky">0.016450</td>      
-                        <td class="tg-0pky">0.000360</td>      
-                        <td class="tg-0pky">0.011922</td>      
-                        <td class="tg-0pky">0.006341</td>      
-                        <td class="tg-0pky">0.278779</td>      
-                        <td class="tg-0pky">0.157548</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Despacito</th>      
-                        <td class="tg-0pky">0.009528</td>      
-                        <td class="tg-0pky">0.000553</td>      
-                        <td class="tg-0pky">0.009744</td>      
-                        <td class="tg-0pky">0.003939</td>      
-                        <td class="tg-0pky">0.107131</td>      
-                        <td class="tg-0pky">0.063538</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Cyanide</th>      
-                        <td class="tg-0pky">0.078642</td>      
-                        <td class="tg-0pky">0.000545</td>      
-                        <td class="tg-0pky">0.005271</td>      
-                        <td class="tg-0pky">0.005738</td>      
-                        <td class="tg-0pky">0.236618</td>      
-                        <td class="tg-0pky">0.263430</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Buy U a Drank (Shawty Snappin')</th>      
-                        <td class="tg-0pky">0.026162</td>      
-                        <td class="tg-0pky">0.001649</td>      
-                        <td class="tg-0pky">0.130888</td>      
-                        <td class="tg-0pky">0.078595</td>      
-                        <td class="tg-0pky">0.214501</td>      
-                        <td class="tg-0pky">0.177378</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">My Type</th>      
-                        <td class="tg-0pky">0.002327</td>      
-                        <td class="tg-0pky">0.000053</td>      
-                        <td class="tg-0pky">0.000194</td>      
-                        <td class="tg-0pky">0.001166</td>      
-                        <td class="tg-0pky">0.169776</td>      
-                        <td class="tg-0pky">0.160391</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">DDU-DU DDU-DU</th>      
-                        <td class="tg-0pky">0.000560</td>     
-                        <td class="tg-0pky">0.000362</td>      
-                        <td class="tg-0pky">0.012985</td>      
-                        <td class="tg-0pky">0.004150</td>      
-                        <td class="tg-0pky">0.250433</td>      
-                        <td class="tg-0pky">0.299767</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">King of Kings</th>      
-                        <td class="tg-0pky">0.004246</td>      
-                        <td class="tg-0pky">0.000084</td>      
-                        <td class="tg-0pky">0.006912</td>      
-                        <td class="tg-0pky">0.046792</td>      
-                        <td class="tg-0pky">0.116599</td>      
-                        <td class="tg-0pky">0.100181</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Autumn Leaves</th>      
-                        <td class="tg-0pky">0.087358</td>      
-                        <td class="tg-0pky">0.002616</td>      
-                        <td class="tg-0pky">0.026214</td>      
-                        <td class="tg-0pky">0.002551</td>      
-                        <td class="tg-0pky">0.267342</td>      
-                        <td class="tg-0pky">0.289967</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">The Star Wars Theme</th>      
-                        <td class="tg-0pky">0.065607</td>      
-                        <td class="tg-0pky">0.002017</td>      
-                        <td class="tg-0pky">0.007384</td>      
-                        <td class="tg-0pky">0.001583</td>      
-                        <td class="tg-0pky">0.992940</td>      
-                        <td class="tg-0pky">1.000243</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">The Marriage of Figaro Overture</th>      
-                        <td class="tg-0pky">0.005025</td>      
-                        <td class="tg-0pky">0.000967</td>      
-                        <td class="tg-0pky">0.002097</td>      
-                        <td class="tg-0pky">0.000734</td>      
-                        <td class="tg-0pky">1.299728</td>      
-                        <td class="tg-0pky">1.348139</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">All I Want for Christmas is You</th>      
-                        <td class="tg-0pky">0.015787</td>      
-                        <td class="tg-0pky">0.000386</td>      
-                        <td class="tg-0pky">0.005668</td>      
-                        <td class="tg-0pky">0.034819</td>      
-                        <td class="tg-0pky">0.115138</td>      
-                        <td class="tg-0pky">0.171720</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Can't Take my Eyes off of You</th>      
-                        <td class="tg-0pky">0.013111</td>      
-                        <td class="tg-0pky">0.000671</td>      
-                        <td class="tg-0pky">0.000980</td>      
-                        <td class="tg-0pky">0.001516</td>      
-                        <td class="tg-0pky">0.134122</td>      
-                        <td class="tg-0pky">0.075223</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">No Woman, No Cry</th>      
-                        <td class="tg-0pky">0.020687</td>      
-                        <td class="tg-0pky">0.002071</td>      
-                        <td class="tg-0pky">0.015922</td>      
-                        <td class="tg-0pky">0.001827</td>      
-                        <td class="tg-0pky">0.346313</td>     
-                        <td class="tg-0pky">0.351701</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">William Shatner speaks Rocket Man</th>      
-                        <td class="tg-0pky">0.002954</td>      
-                        <td class="tg-0pky">0.000439</td>      
-                        <td class="tg-0pky">0.003379</td>      
-                        <td class="tg-0pky">0.005049</td>      
-                        <td class="tg-0pky">0.456568</td>      
-                        <td class="tg-0pky">0.442602</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Grenade</th>      
-                        <td class="tg-0pky">0.005015</td>      
-                        <td class="tg-0pky">0.000149</td>      
-                        <td class="tg-0pky">0.005484</td>      
-                        <td class="tg-0pky">0.000146</td>      
-                        <td class="tg-0pky">0.138764</td>      
-                        <td class="tg-0pky">0.112630</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Country Girl (Shake It For Me)</th>      
-                        <td class="tg-0pky">0.001753</td>      
-                        <td class="tg-0pky">0.000153</td>      
-                        <td class="tg-0pky">0.002200</td>      
-                        <td class="tg-0pky">0.009898</td>      
-                        <td class="tg-0pky">0.200039</td>      
-                        <td class="tg-0pky">0.193183</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Ransom</th>      
-                        <td class="tg-0pky">0.008899</td>      
-                        <td class="tg-0pky">0.000216</td>      
-                        <td class="tg-0pky">0.002312</td>      
-                        <td class="tg-0pky">0.004695</td>      
-                        <td class="tg-0pky">0.272664</td>      
-                        <td class="tg-0pky">0.240512</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Magnolia</th>      
-                        <td class="tg-0pky">0.094286</td>      
-                        <td class="tg-0pky">0.000410</td>      
-                        <td class="tg-0pky">0.001734</td>      
-                        <td class="tg-0pky">0.000132</td>      
-                        <td class="tg-0pky">0.252121</td>      
-                        <td class="tg-0pky">0.267089</td>    
-                    </tr>    
-                        <tr>      
-                        <th class="tg-0pky row-col-title">FACE</th>      
-                        <td class="tg-0pky">0.020528</td>      
-                        <td class="tg-0pky">0.005342</td>      
-                        <td class="tg-0pky">0.051708</td>      
-                        <td class="tg-0pky">0.083133</td>      
-                        <td class="tg-0pky">0.272206</td>      
-                        <td class="tg-0pky">0.239928</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Inside Out</th>      
-                        <td class="tg-0pky">0.028865</td>      
-                        <td class="tg-0pky">0.000131</td>      
-                        <td class="tg-0pky">0.008655</td>      
-                        <td class="tg-0pky">0.002886</td>      
-                        <td class="tg-0pky">0.218657</td>      
-                        <td class="tg-0pky">0.239411</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Lovebug</th>      
-                        <td class="tg-0pky">0.005819</td>      
-                        <td class="tg-0pky">0.000600</td>      
-                        <td class="tg-0pky">0.059192</td>      
-                        <td class="tg-0pky">0.028596</td>      
-                        <td class="tg-0pky">0.103388</td>      
-                        <td class="tg-0pky">0.116032</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">My Shot</th>      
-                        <td class="tg-0pky">0.004700</td>      
-                        <td class="tg-0pky">0.000320</td>      
-                        <td class="tg-0pky">0.000535</td>      
-                        <td class="tg-0pky">0.000413</td>      
-                        <td class="tg-0pky">0.179155</td>      
-                        <td class="tg-0pky">0.239149</td>    
-                    </tr>    
-                        <tr>      
-                            <th class="tg-0pky row-col-title">Moments Passed</th>      
-                        <td class="tg-0pky">0.004245</td>      
-                        <td class="tg-0pky">0.000423</td>      
-                        <td class="tg-0pky">0.028958</td>      
-                        <td class="tg-0pky">0.015484</td>      
-                        <td class="tg-0pky">0.132276</td>      
-                        <td class="tg-0pky">0.145516</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Come Down</th>      
-                        <td class="tg-0pky">0.028447</td>      
-                        <td class="tg-0pky">0.001110</td>      
-                        <td class="tg-0pky">0.020129</td>      
-                        <td class="tg-0pky">0.058544</td>      
-                        <td class="tg-0pky">0.180081</td>     
-                        <td class="tg-0pky">0.157483</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Emaline</th>      
-                        <td class="tg-0pky">0.010707</td>      
-                        <td class="tg-0pky">0.000139</td>      
-                        <td class="tg-0pky">0.000105</td>      
-                        <td class="tg-0pky">0.000044</td>      
-                        <td class="tg-0pky">0.237566</td>      
-                        <td class="tg-0pky">0.137893</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Say It Ain't So</th>      
-                        <td class="tg-0pky">0.010820</td>      
-                        <td class="tg-0pky">0.000138</td>      
-                        <td class="tg-0pky">0.000593</td>      
-                        <td class="tg-0pky">0.022434</td>      
-                        <td class="tg-0pky">0.202545</td>      
-                        <td class="tg-0pky">0.169659</td>    
-                    </tr>    
-                        <tr>      
-                        <th class="tg-0pky row-col-title">Der Geist hilft unser Schwachheit auf</th>      
-                        <td class="tg-0pky">0.039614</td>      
-                        <td class="tg-0pky">0.001006</td>      
-                        <td class="tg-0pky">0.004548</td>      
-                        <td class="tg-0pky">0.005444</td>      
-                        <td class="tg-0pky">0.698867</td>      
-                        <td class="tg-0pky">0.637459</td>    
-                    </tr>    
-                        <tr>      
-                        <th class="tg-0pky row-col-title">Vossi Bop</th>      
-                        <td class="tg-0pky">0.000341</td>      
-                        <td class="tg-0pky">0.029178</td>      
-                        <td class="tg-0pky">0.001237</td>      
-                        <td class="tg-0pky">0.006090</td>      
-                        <td class="tg-0pky">0.119955</td>      
-                        <td class="tg-0pky">0.166315</td>    
-                    </tr>    
-                        <tr>      
-                        <th class="tg-0pky row-col-title">The Thrill is Gone</th>      
-                        <td class="tg-0pky">0.002741</td>      
-                        <td class="tg-0pky">0.029912</td>      
-                        <td class="tg-0pky">0.058425</td>      
-                        <td class="tg-0pky">0.055224</td>      
-                        <td class="tg-0pky">0.147720</td>      
-                        <td class="tg-0pky">0.132937</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">How Far I'll Go</th>      
-                        <td class="tg-0pky">0.000447</td>      
-                        <td class="tg-0pky">0.006570</td>      
-                        <td class="tg-0pky">0.005086</td>      
-                        <td class="tg-0pky">0.011233</td>      
-                        <td class="tg-0pky">0.219445</td>      
-                        <td class="tg-0pky">0.334911</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">My Oh My</th>      
-                        <td class="tg-0pky">0.002860</td>      
-                        <td class="tg-0pky">0.000111</td>      
-                        <td class="tg-0pky">0.009427</td>      
-                        <td class="tg-0pky">0.002148</td>      
-                        <td class="tg-0pky">0.148766</td>      
-                        <td class="tg-0pky">0.160077</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Posthumous Forgiveness</th>      
-                        <td class="tg-0pky">0.038095</td>      
-                        <td class="tg-0pky">0.001118</td>      
-                        <td class="tg-0pky">0.007383</td>      
-                        <td class="tg-0pky">0.049842</td>      
-                        <td class="tg-0pky">0.230584</td>      
-                        <td class="tg-0pky">0.286806</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Desperado</th>      
-                        <td class="tg-0pky">0.059450</td>      
-                        <td class="tg-0pky">0.000149</td>      
-                        <td class="tg-0pky">0.002446</td>      
-                        <td class="tg-0pky">0.000684</td>      
-                        <td class="tg-0pky">0.733834</td>      
-                        <td class="tg-0pky">0.723697</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Sir Duke</th>      
-                        <td class="tg-0pky">0.004620</td>      
-                        <td class="tg-0pky">0.000589</td>      
-                        <td class="tg-0pky">0.013601</td>      
-                        <td class="tg-0pky">0.033783</td>      
-                        <td class="tg-0pky">0.043316</td>      
-                        <td class="tg-0pky">0.056422</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Happy Birthday</th>      
-                        <td class="tg-0pky">0.002366</td>      
-                        <td class="tg-0pky">0.000236</td>      
-                        <td class="tg-0pky">0.005628</td>      
-                        <td class="tg-0pky">0.003489</td>      
-                        <td class="tg-0pky">0.488781</td>      
-                        <td class="tg-0pky">0.392939</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Star Spangled Banner</th>      
-                        <td class="tg-0pky">0.006668</td>      
-                        <td class="tg-0pky">0.000621</td>      
-                        <td class="tg-0pky">0.000980</td>      
-                        <td class="tg-0pky">0.000450</td>      
-                        <td class="tg-0pky">1.085056</td>      
-                        <td class="tg-0pky">1.087717</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">God is a woman</th>      
-                        <td class="tg-0pky">0.004181</td>      
-                        <td class="tg-0pky">0.000324</td>      
-                        <td class="tg-0pky">0.000130</td>      
-                        <td class="tg-0pky">0.023923</td>      
-                        <td class="tg-0pky">0.209001</td>      
-                        <td class="tg-0pky">0.141342</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">God Save the Queen (Queen)</th>      
-                        <td class="tg-0pky">0.042107</td>      
-                        <td class="tg-0pky">0.002340</td>      
-                        <td class="tg-0pky">0.019933</td>      
-                        <td class="tg-0pky">0.022709</td>      
-                        <td class="tg-0pky">0.643322</td>      
-                        <td class="tg-0pky">0.944059</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">O Canada</th>      
-                        <td class="tg-0pky">0.031179</td>      
-                        <td class="tg-0pky">0.002123</td>      
-                        <td class="tg-0pky">0.002932</td>      
-                        <td class="tg-0pky">0.001426</td>      
-                        <td class="tg-0pky">0.425895</td>      
-                        <td class="tg-0pky">0.529212</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Kyrie (Mozart Requiem)</th>      
-                        <td class="tg-0pky">0.021656</td>      
-                        <td class="tg-0pky">0.001580</td>      
-                        <td class="tg-0pky">0.004743</td>      
-                        <td class="tg-0pky">0.007289</td>      
-                        <td class="tg-0pky">0.963742</td>      
-                        <td class="tg-0pky">1.284673</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">SLOW DANCING IN THE DARK</th>      
-                        <td class="tg-0pky">0.004440</td>      
-                        <td class="tg-0pky">0.000289</td>      
-                        <td class="tg-0pky">0.025079</td>      
-                        <td class="tg-0pky">0.010463</td>      
-                        <td class="tg-0pky">0.074102</td>      
-                        <td class="tg-0pky">0.141662</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Mean It</th>      
-                        <td class="tg-0pky">0.006078</td>      
-                        <td class="tg-0pky">0.000449</td>      
-                        <td class="tg-0pky">0.005177</td>      
-                        <td class="tg-0pky">0.000655</td>      
-                        <td class="tg-0pky">0.170453</td>      
-                        <td class="tg-0pky">0.203931</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">A Sea Symphony, Movt 2</th>      
-                        <td class="tg-0pky">0.064007</td>      
-                        <td class="tg-0pky">0.002698</td>      
-                        <td class="tg-0pky">0.010987</td>      
-                        <td class="tg-0pky">0.002346</td>      
-                        <td class="tg-0pky">1.212871</td>      
-                        <td class="tg-0pky">1.232197</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Thais Meditation</th>      
-                        <td class="tg-0pky">0.033841</td>      
-                        <td class="tg-0pky">0.000303</td>      
-                        <td class="tg-0pky">0.004186</td>      
-                        <td class="tg-0pky">0.000392</td>      
-                        <td class="tg-0pky">0.817475</td>      
-                        <td class="tg-0pky">0.730178</td>    
-                    </tr>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Bogoroditse Devo</th>      
-                        <td class="tg-0pky">0.036477</td>      
-                        <td class="tg-0pky">0.000653</td>      
-                        <td class="tg-0pky">0.002229</td>      
-                        <td class="tg-0pky">0.001378</td>      
-                        <td class="tg-0pky">1.160927</td>      
-                        <td class="tg-0pky">1.141981</td>    
-                    </tr>  
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Senorita</th>
+                        <td class="tg-0pky">0.004108</td>
+                        <td class="tg-0pky">0.000153</td>
+                        <td class="tg-0pky">0.000804</td>
+                        <td class="tg-0pky">0.000218</td>
+                        <td class="tg-0pky">0.163915</td>
+                        <td class="tg-0pky">0.134497</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Yo-Yo Ma Cello Suite No. 1 in G Major</th>
+                        <td class="tg-0pky">0.007471</td>
+                        <td class="tg-0pky">0.000957</td>
+                        <td class="tg-0pky">0.008852</td>
+                        <td class="tg-0pky">0.006980</td>
+                        <td class="tg-0pky">1.112812</td>
+                        <td class="tg-0pky">1.121155</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Suge</th>
+                        <td class="tg-0pky">0.055340</td>
+                        <td class="tg-0pky">0.000941</td>
+                        <td class="tg-0pky">0.010914</td>
+                        <td class="tg-0pky">0.018576</td>
+                        <td class="tg-0pky">0.332391</td>
+                        <td class="tg-0pky">0.391957</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">bad guy</th>
+                        <td class="tg-0pky">0.045853</td>
+                        <td class="tg-0pky">0.011441</td>
+                        <td class="tg-0pky">0.015858</td>
+                        <td class="tg-0pky">0.014628</td>
+                        <td class="tg-0pky">0.139678</td>
+                        <td class="tg-0pky">0.144949</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">SICKO MODE</th>
+                        <td class="tg-0pky">0.016450</td>
+                        <td class="tg-0pky">0.000360</td>
+                        <td class="tg-0pky">0.011922</td>
+                        <td class="tg-0pky">0.006341</td>
+                        <td class="tg-0pky">0.278779</td>
+                        <td class="tg-0pky">0.157548</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Despacito</th>
+                        <td class="tg-0pky">0.009528</td>
+                        <td class="tg-0pky">0.000553</td>
+                        <td class="tg-0pky">0.009744</td>
+                        <td class="tg-0pky">0.003939</td>
+                        <td class="tg-0pky">0.107131</td>
+                        <td class="tg-0pky">0.063538</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Cyanide</th>
+                        <td class="tg-0pky">0.078642</td>
+                        <td class="tg-0pky">0.000545</td>
+                        <td class="tg-0pky">0.005271</td>
+                        <td class="tg-0pky">0.005738</td>
+                        <td class="tg-0pky">0.236618</td>
+                        <td class="tg-0pky">0.263430</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Buy U a Drank (Shawty Snappin')</th>
+                        <td class="tg-0pky">0.026162</td>
+                        <td class="tg-0pky">0.001649</td>
+                        <td class="tg-0pky">0.130888</td>
+                        <td class="tg-0pky">0.078595</td>
+                        <td class="tg-0pky">0.214501</td>
+                        <td class="tg-0pky">0.177378</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">My Type</th>
+                        <td class="tg-0pky">0.002327</td>
+                        <td class="tg-0pky">0.000053</td>
+                        <td class="tg-0pky">0.000194</td>
+                        <td class="tg-0pky">0.001166</td>
+                        <td class="tg-0pky">0.169776</td>
+                        <td class="tg-0pky">0.160391</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">DDU-DU DDU-DU</th>
+                        <td class="tg-0pky">0.000560</td>
+                        <td class="tg-0pky">0.000362</td>
+                        <td class="tg-0pky">0.012985</td>
+                        <td class="tg-0pky">0.004150</td>
+                        <td class="tg-0pky">0.250433</td>
+                        <td class="tg-0pky">0.299767</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">King of Kings</th>
+                        <td class="tg-0pky">0.004246</td>
+                        <td class="tg-0pky">0.000084</td>
+                        <td class="tg-0pky">0.006912</td>
+                        <td class="tg-0pky">0.046792</td>
+                        <td class="tg-0pky">0.116599</td>
+                        <td class="tg-0pky">0.100181</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Autumn Leaves</th>
+                        <td class="tg-0pky">0.087358</td>
+                        <td class="tg-0pky">0.002616</td>
+                        <td class="tg-0pky">0.026214</td>
+                        <td class="tg-0pky">0.002551</td>
+                        <td class="tg-0pky">0.267342</td>
+                        <td class="tg-0pky">0.289967</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">The Star Wars Theme</th>
+                        <td class="tg-0pky">0.065607</td>
+                        <td class="tg-0pky">0.002017</td>
+                        <td class="tg-0pky">0.007384</td>
+                        <td class="tg-0pky">0.001583</td>
+                        <td class="tg-0pky">0.992940</td>
+                        <td class="tg-0pky">1.000243</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">The Marriage of Figaro Overture</th>
+                        <td class="tg-0pky">0.005025</td>
+                        <td class="tg-0pky">0.000967</td>
+                        <td class="tg-0pky">0.002097</td>
+                        <td class="tg-0pky">0.000734</td>
+                        <td class="tg-0pky">1.299728</td>
+                        <td class="tg-0pky">1.348139</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">All I Want for Christmas is You</th>
+                        <td class="tg-0pky">0.015787</td>
+                        <td class="tg-0pky">0.000386</td>
+                        <td class="tg-0pky">0.005668</td>
+                        <td class="tg-0pky">0.034819</td>
+                        <td class="tg-0pky">0.115138</td>
+                        <td class="tg-0pky">0.171720</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Can't Take my Eyes off of You</th>
+                        <td class="tg-0pky">0.013111</td>
+                        <td class="tg-0pky">0.000671</td>
+                        <td class="tg-0pky">0.000980</td>
+                        <td class="tg-0pky">0.001516</td>
+                        <td class="tg-0pky">0.134122</td>
+                        <td class="tg-0pky">0.075223</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">No Woman, No Cry</th>
+                        <td class="tg-0pky">0.020687</td>
+                        <td class="tg-0pky">0.002071</td>
+                        <td class="tg-0pky">0.015922</td>
+                        <td class="tg-0pky">0.001827</td>
+                        <td class="tg-0pky">0.346313</td>
+                        <td class="tg-0pky">0.351701</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">William Shatner speaks Rocket Man</th>
+                        <td class="tg-0pky">0.002954</td>
+                        <td class="tg-0pky">0.000439</td>
+                        <td class="tg-0pky">0.003379</td>
+                        <td class="tg-0pky">0.005049</td>
+                        <td class="tg-0pky">0.456568</td>
+                        <td class="tg-0pky">0.442602</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Grenade</th>
+                        <td class="tg-0pky">0.005015</td>
+                        <td class="tg-0pky">0.000149</td>
+                        <td class="tg-0pky">0.005484</td>
+                        <td class="tg-0pky">0.000146</td>
+                        <td class="tg-0pky">0.138764</td>
+                        <td class="tg-0pky">0.112630</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Country Girl (Shake It For Me)</th>
+                        <td class="tg-0pky">0.001753</td>
+                        <td class="tg-0pky">0.000153</td>
+                        <td class="tg-0pky">0.002200</td>
+                        <td class="tg-0pky">0.009898</td>
+                        <td class="tg-0pky">0.200039</td>
+                        <td class="tg-0pky">0.193183</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Ransom</th>
+                        <td class="tg-0pky">0.008899</td>
+                        <td class="tg-0pky">0.000216</td>
+                        <td class="tg-0pky">0.002312</td>
+                        <td class="tg-0pky">0.004695</td>
+                        <td class="tg-0pky">0.272664</td>
+                        <td class="tg-0pky">0.240512</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Magnolia</th>
+                        <td class="tg-0pky">0.094286</td>
+                        <td class="tg-0pky">0.000410</td>
+                        <td class="tg-0pky">0.001734</td>
+                        <td class="tg-0pky">0.000132</td>
+                        <td class="tg-0pky">0.252121</td>
+                        <td class="tg-0pky">0.267089</td>
+                    </tr>
+                        <tr>
+                        <th class="tg-0pky row-col-title">FACE</th>
+                        <td class="tg-0pky">0.020528</td>
+                        <td class="tg-0pky">0.005342</td>
+                        <td class="tg-0pky">0.051708</td>
+                        <td class="tg-0pky">0.083133</td>
+                        <td class="tg-0pky">0.272206</td>
+                        <td class="tg-0pky">0.239928</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Inside Out</th>
+                        <td class="tg-0pky">0.028865</td>
+                        <td class="tg-0pky">0.000131</td>
+                        <td class="tg-0pky">0.008655</td>
+                        <td class="tg-0pky">0.002886</td>
+                        <td class="tg-0pky">0.218657</td>
+                        <td class="tg-0pky">0.239411</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Lovebug</th>
+                        <td class="tg-0pky">0.005819</td>
+                        <td class="tg-0pky">0.000600</td>
+                        <td class="tg-0pky">0.059192</td>
+                        <td class="tg-0pky">0.028596</td>
+                        <td class="tg-0pky">0.103388</td>
+                        <td class="tg-0pky">0.116032</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">My Shot</th>
+                        <td class="tg-0pky">0.004700</td>
+                        <td class="tg-0pky">0.000320</td>
+                        <td class="tg-0pky">0.000535</td>
+                        <td class="tg-0pky">0.000413</td>
+                        <td class="tg-0pky">0.179155</td>
+                        <td class="tg-0pky">0.239149</td>
+                    </tr>
+                        <tr>
+                            <th class="tg-0pky row-col-title">Moments Passed</th>
+                        <td class="tg-0pky">0.004245</td>
+                        <td class="tg-0pky">0.000423</td>
+                        <td class="tg-0pky">0.028958</td>
+                        <td class="tg-0pky">0.015484</td>
+                        <td class="tg-0pky">0.132276</td>
+                        <td class="tg-0pky">0.145516</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Come Down</th>
+                        <td class="tg-0pky">0.028447</td>
+                        <td class="tg-0pky">0.001110</td>
+                        <td class="tg-0pky">0.020129</td>
+                        <td class="tg-0pky">0.058544</td>
+                        <td class="tg-0pky">0.180081</td>
+                        <td class="tg-0pky">0.157483</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Emaline</th>
+                        <td class="tg-0pky">0.010707</td>
+                        <td class="tg-0pky">0.000139</td>
+                        <td class="tg-0pky">0.000105</td>
+                        <td class="tg-0pky">0.000044</td>
+                        <td class="tg-0pky">0.237566</td>
+                        <td class="tg-0pky">0.137893</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Say It Ain't So</th>
+                        <td class="tg-0pky">0.010820</td>
+                        <td class="tg-0pky">0.000138</td>
+                        <td class="tg-0pky">0.000593</td>
+                        <td class="tg-0pky">0.022434</td>
+                        <td class="tg-0pky">0.202545</td>
+                        <td class="tg-0pky">0.169659</td>
+                    </tr>
+                        <tr>
+                        <th class="tg-0pky row-col-title">Der Geist hilft unser Schwachheit auf</th>
+                        <td class="tg-0pky">0.039614</td>
+                        <td class="tg-0pky">0.001006</td>
+                        <td class="tg-0pky">0.004548</td>
+                        <td class="tg-0pky">0.005444</td>
+                        <td class="tg-0pky">0.698867</td>
+                        <td class="tg-0pky">0.637459</td>
+                    </tr>
+                        <tr>
+                        <th class="tg-0pky row-col-title">Vossi Bop</th>
+                        <td class="tg-0pky">0.000341</td>
+                        <td class="tg-0pky">0.029178</td>
+                        <td class="tg-0pky">0.001237</td>
+                        <td class="tg-0pky">0.006090</td>
+                        <td class="tg-0pky">0.119955</td>
+                        <td class="tg-0pky">0.166315</td>
+                    </tr>
+                        <tr>
+                        <th class="tg-0pky row-col-title">The Thrill is Gone</th>
+                        <td class="tg-0pky">0.002741</td>
+                        <td class="tg-0pky">0.029912</td>
+                        <td class="tg-0pky">0.058425</td>
+                        <td class="tg-0pky">0.055224</td>
+                        <td class="tg-0pky">0.147720</td>
+                        <td class="tg-0pky">0.132937</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">How Far I'll Go</th>
+                        <td class="tg-0pky">0.000447</td>
+                        <td class="tg-0pky">0.006570</td>
+                        <td class="tg-0pky">0.005086</td>
+                        <td class="tg-0pky">0.011233</td>
+                        <td class="tg-0pky">0.219445</td>
+                        <td class="tg-0pky">0.334911</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">My Oh My</th>
+                        <td class="tg-0pky">0.002860</td>
+                        <td class="tg-0pky">0.000111</td>
+                        <td class="tg-0pky">0.009427</td>
+                        <td class="tg-0pky">0.002148</td>
+                        <td class="tg-0pky">0.148766</td>
+                        <td class="tg-0pky">0.160077</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Posthumous Forgiveness</th>
+                        <td class="tg-0pky">0.038095</td>
+                        <td class="tg-0pky">0.001118</td>
+                        <td class="tg-0pky">0.007383</td>
+                        <td class="tg-0pky">0.049842</td>
+                        <td class="tg-0pky">0.230584</td>
+                        <td class="tg-0pky">0.286806</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Desperado</th>
+                        <td class="tg-0pky">0.059450</td>
+                        <td class="tg-0pky">0.000149</td>
+                        <td class="tg-0pky">0.002446</td>
+                        <td class="tg-0pky">0.000684</td>
+                        <td class="tg-0pky">0.733834</td>
+                        <td class="tg-0pky">0.723697</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Sir Duke</th>
+                        <td class="tg-0pky">0.004620</td>
+                        <td class="tg-0pky">0.000589</td>
+                        <td class="tg-0pky">0.013601</td>
+                        <td class="tg-0pky">0.033783</td>
+                        <td class="tg-0pky">0.043316</td>
+                        <td class="tg-0pky">0.056422</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Happy Birthday</th>
+                        <td class="tg-0pky">0.002366</td>
+                        <td class="tg-0pky">0.000236</td>
+                        <td class="tg-0pky">0.005628</td>
+                        <td class="tg-0pky">0.003489</td>
+                        <td class="tg-0pky">0.488781</td>
+                        <td class="tg-0pky">0.392939</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Star Spangled Banner</th>
+                        <td class="tg-0pky">0.006668</td>
+                        <td class="tg-0pky">0.000621</td>
+                        <td class="tg-0pky">0.000980</td>
+                        <td class="tg-0pky">0.000450</td>
+                        <td class="tg-0pky">1.085056</td>
+                        <td class="tg-0pky">1.087717</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">God is a woman</th>
+                        <td class="tg-0pky">0.004181</td>
+                        <td class="tg-0pky">0.000324</td>
+                        <td class="tg-0pky">0.000130</td>
+                        <td class="tg-0pky">0.023923</td>
+                        <td class="tg-0pky">0.209001</td>
+                        <td class="tg-0pky">0.141342</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">God Save the Queen (Queen)</th>
+                        <td class="tg-0pky">0.042107</td>
+                        <td class="tg-0pky">0.002340</td>
+                        <td class="tg-0pky">0.019933</td>
+                        <td class="tg-0pky">0.022709</td>
+                        <td class="tg-0pky">0.643322</td>
+                        <td class="tg-0pky">0.944059</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">O Canada</th>
+                        <td class="tg-0pky">0.031179</td>
+                        <td class="tg-0pky">0.002123</td>
+                        <td class="tg-0pky">0.002932</td>
+                        <td class="tg-0pky">0.001426</td>
+                        <td class="tg-0pky">0.425895</td>
+                        <td class="tg-0pky">0.529212</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Kyrie (Mozart Requiem)</th>
+                        <td class="tg-0pky">0.021656</td>
+                        <td class="tg-0pky">0.001580</td>
+                        <td class="tg-0pky">0.004743</td>
+                        <td class="tg-0pky">0.007289</td>
+                        <td class="tg-0pky">0.963742</td>
+                        <td class="tg-0pky">1.284673</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">SLOW DANCING IN THE DARK</th>
+                        <td class="tg-0pky">0.004440</td>
+                        <td class="tg-0pky">0.000289</td>
+                        <td class="tg-0pky">0.025079</td>
+                        <td class="tg-0pky">0.010463</td>
+                        <td class="tg-0pky">0.074102</td>
+                        <td class="tg-0pky">0.141662</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Mean It</th>
+                        <td class="tg-0pky">0.006078</td>
+                        <td class="tg-0pky">0.000449</td>
+                        <td class="tg-0pky">0.005177</td>
+                        <td class="tg-0pky">0.000655</td>
+                        <td class="tg-0pky">0.170453</td>
+                        <td class="tg-0pky">0.203931</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">A Sea Symphony, Movt 2</th>
+                        <td class="tg-0pky">0.064007</td>
+                        <td class="tg-0pky">0.002698</td>
+                        <td class="tg-0pky">0.010987</td>
+                        <td class="tg-0pky">0.002346</td>
+                        <td class="tg-0pky">1.212871</td>
+                        <td class="tg-0pky">1.232197</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Thais Meditation</th>
+                        <td class="tg-0pky">0.033841</td>
+                        <td class="tg-0pky">0.000303</td>
+                        <td class="tg-0pky">0.004186</td>
+                        <td class="tg-0pky">0.000392</td>
+                        <td class="tg-0pky">0.817475</td>
+                        <td class="tg-0pky">0.730178</td>
+                    </tr>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Bogoroditse Devo</th>
+                        <td class="tg-0pky">0.036477</td>
+                        <td class="tg-0pky">0.000653</td>
+                        <td class="tg-0pky">0.002229</td>
+                        <td class="tg-0pky">0.001378</td>
+                        <td class="tg-0pky">1.160927</td>
+                        <td class="tg-0pky">1.141981</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -1081,62 +1082,62 @@
             <p>
                 Below is a table of the average sums of squared error for all models across all tested seed songs sorted from best to worst model based on smallest to largest error.
             </p>
-            <table class="tg">  
-                <thead>    
-                    <tr>      
-                        <th class="tg-0pky row-col-title">Model</th>      
-                        <th class="tg-0pky row-col-title">Average SSE</th>    
+            <table class="tg">
+                <thead>
+                    <tr>
+                        <th class="tg-0pky row-col-title">Model</th>
+                        <th class="tg-0pky row-col-title">Average SSE</th>
                     </tr>
-                </thead>  
-                <tbody>    
-                    <tr>      
+                </thead>
+                <tbody>
+                    <tr>
                         <th class="tg-0pky row-col-title">
-                            k-NN, 
-                            euclidean distance, 
+                            k-NN,
+                            euclidean distance,
                             tempo excluded
-                        </th>      
-                        <td class="tg-0pky">0.002360</td>    
-                    </tr>    
-                        <tr>      
+                        </th>
+                        <td class="tg-0pky">0.002360</td>
+                    </tr>
+                        <tr>
                         <th class="tg-0pky row-col-title">
                             k-NN,
                             cosine similarity,
                             tempo included
-                        </th>       
-                        <td class="tg-0pky">0.013097</td>    
-                    </tr>    
-                        <tr>      
+                        </th>
+                        <td class="tg-0pky">0.013097</td>
+                    </tr>
+                        <tr>
                         <th class="tg-0pky row-col-title">
-                            k-NN, 
+                            k-NN,
                             cosine similarity,
                             tempo excluded
-                        </th>      
-                        <td class="tg-0pky">0.014297</td>    
-                    </tr>    
-                        <tr>      
+                        </th>
+                        <td class="tg-0pky">0.014297</td>
+                    </tr>
+                        <tr>
                         <th class="tg-0pky row-col-title">
                             k-NN,
                             euclidean distance,
                             tempo included
-                        </th>      
-                        <td class="tg-0pky">0.022173</td>    
-                    </tr>    
-                        <tr>      
-                        <th class="tg-0pky row-col-title">
-                            k-means clustering, 
-                            k=50, 
-                            tempo included
-                        </th>      
-                        <td class="tg-0pky">0.382007</td>    
-                    </tr>    
-                        <tr>      
+                        </th>
+                        <td class="tg-0pky">0.022173</td>
+                    </tr>
+                        <tr>
                         <th class="tg-0pky row-col-title">
                             k-means clustering,
-                            k=50, 
+                            k=50,
+                            tempo included
+                        </th>
+                        <td class="tg-0pky">0.382007</td>
+                    </tr>
+                        <tr>
+                        <th class="tg-0pky row-col-title">
+                            k-means clustering,
+                            k=50,
                             tempo excluded
-                        </th>       
-                        <td class="tg-0pky">0.393498</td>    
-                    </tr>  
+                        </th>
+                        <td class="tg-0pky">0.393498</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -1146,23 +1147,23 @@
             <br>
 
             <h1>Conclusions</h1>
-            <p>Now that we have evaluative data on our playlist-generating models, we can draw some conclusions on which of our models are best suited to solve the cold start problem. We will compare classes of models across our three types, k-NN euclidean distance, k-NN cosine similarity, and k-Means clustering, and across our two tempo statuses, included and excluded. 
+            <p>Now that we have evaluative data on our playlist-generating models, we can draw some conclusions on which of our models are best suited to solve the cold start problem. We will compare classes of models across our three types, k-NN euclidean distance, k-NN cosine similarity, and k-Means clustering, and across our two tempo statuses, included and excluded.
             </p>
              <p>Note that in tempo-included models, the underlying model has an extra term for tempo that must be minimized (an extra dimension in our euclidean distance, cosine similarity, or k-means algorithm). Minimizing that extra term to get songs that are closer in tempo will affect how similar the the other audio features are to our seed song. Note, again, that for aforementioned reasons, tempo is unnormalized (see Methods and Models). We can expect the impact of tempo’s inclusion to vary across model type.</p>
             <p>
-            With that being said, our best overall model in terms of our evaluative metric is the k-NN model that excludes tempo as a predictor and uses euclidean distance. With an average SSE of 0.002360, this model’s playlist songs had relevant audio features that were closest to the seed song on average, outperforming the next best model (k-NN cosine similarity, no tempo) by 0.010737.</p> 
+            With that being said, our best overall model in terms of our evaluative metric is the k-NN model that excludes tempo as a predictor and uses euclidean distance. With an average SSE of 0.002360, this model’s playlist songs had relevant audio features that were closest to the seed song on average, outperforming the next best model (k-NN cosine similarity, no tempo) by 0.010737.</p>
             <p>However, when tempo is introduced into the mix as a predictor, the k-NN euclidean distance model performed nearly 10 times worse than before. This can be attributed to the fact that tempo was unnormalized as a predictor. Since euclidean distance is especially sensitive to differences in scale, it makes sense that there is such a dramatic decrease in accuracy when tempo is included as an algorithm with euclidean distance overcorrects by ensuring tempo is similar at the cost of ensuring other audio features are similar.
             </p>
-            <p>Though, as mentioned, k-NN models using cosine similarity performed significantly worse than the k-NN euclidean distance model, it is worth noting that they are much less sensitive to the inclusion of the unstandardized tempo variable with an absolute difference in SSE of 0.0012. This makes sense as cosine similarity, in general, is less sensitive to the inclusion of many parameters on different scales than euclidean distance. 
+            <p>Though, as mentioned, k-NN models using cosine similarity performed significantly worse than the k-NN euclidean distance model, it is worth noting that they are much less sensitive to the inclusion of the unstandardized tempo variable with an absolute difference in SSE of 0.0012. This makes sense as cosine similarity, in general, is less sensitive to the inclusion of many parameters on different scales than euclidean distance.
             </p>
             <p>The clear worst of the three methods, as expected, is k-Means clustering. k-Means performs over an order of magnitude worse than our other models. To improve this model, we could cross validate for a better <i>k</i> or find some more sophisticated way to choose songs within a cluster. The k-Means model we have now, however, doesn’t seem like the best way to construct a cold start playlist. It is interesting that the overall similarity SSE score actually goes down with the inclusion of tempo for the k-Means clustering algorithm. This makes sense upon further analysis as another degree of freedom on which to create clusters should make clusters more similar within group.</p>
 
             <h3>Final Thoughts and Future Extensions</h3>
             <p>
-            Overall, our k-NN model using euclidean distance and excluding tempo performs the best in terms of producing songs that have similar audio features to the seed song. 
+            Overall, our k-NN model using euclidean distance and excluding tempo performs the best in terms of producing songs that have similar audio features to the seed song.
             </p>
             <p>
-            If the goals is to generate a playlist with songs that have similar audio features and similar tempos, one would be best served choosing the k-NN model using cosine similarity with tempo included based on the metric we created. However, a better way to solve that problem would be to include a properly-normalized version of tempo as a residual in the loss function. If evaluating playlists wasn't so computationally expensive, we would have re-run our models using this separate loss function. 
+            If the goals is to generate a playlist with songs that have similar audio features and similar tempos, one would be best served choosing the k-NN model using cosine similarity with tempo included based on the metric we created. However, a better way to solve that problem would be to include a properly-normalized version of tempo as a residual in the loss function. If evaluating playlists wasn't so computationally expensive, we would have re-run our models using this separate loss function.
             </p>
             <p>
             A future extension of this project could consider weighting certain songs over others. For example, this model might work better if we were able to obtain the genre of the input song. Using that information, we could up-weight songs of the same genre when doing our calculation of Euclidean distance (essentially penalizing songs outside of the genre) to playlists that will likely be more thematically similar. </p>
